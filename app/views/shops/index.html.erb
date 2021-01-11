@@ -1,0 +1,45 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        ショップ一覧
+      </h1>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @shops.each do |shop| %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= link_to shop_path(shop) do %>
+                  <%= attachment_image_tag shop, :image %>
+                <% end %>
+               </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <%= link_to user_path(shop.user.id) do %>
+                      <%= attachment_image_tag shop.user, :profile_image, fallback: "no-image.jpg" %>
+                    <% end %>
+                  </figure>
+                </div>
+                  <div class="title"><%= link_to shop.user.username,user_path(shop.user.id) %></div>
+                </div>
+              </div>
+              <div class="content">
+                <time><%= shop.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
