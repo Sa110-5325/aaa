@@ -1,0 +1,26 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_for shop do |f| %>
+          <div class="field">
+            <%= f.label :title, "Shop Name", class: "label" %>
+            <%= f.text_field :title, class: "input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :body, "Shop Discription", class: "label" %>
+            <%= f.text_area :body, class: "textarea" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :image, "Picture", class: "label" %>
+            <%= f.attachment_field :image, class: "input" %>
+          </div>
+
+          <%= f.submit 'Post', class: "button is-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

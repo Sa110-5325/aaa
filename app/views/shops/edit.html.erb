@@ -1,45 +1,13 @@
+<%= render 'shops/error', shop: @shop %>
+
 <section class="hero is-success">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
         EDITING SHOP DISCRIPTION
       </h1>
+      
     </div>
   </div>
 </section>
-<% if @shop.errors.any? %>
-  <div class="notification is-danger">
-    <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
-    <ul>
-      <% @shop.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-6">
-        <%= form_for @shop do |f| %>
-          <div class="field">
-            <%= f.label :title, "Shop Name", class: "label" %>
-            <%= f.text_field :title, class: "input" %>
-          </div>
 
-          <div class="field">
-            <%= f.label :body, "Shop Discription", class: "label" %>
-            <%= f.text_area :body, class: "textarea" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :image, "Picture", class: "label" %>
-            <%= f.attachment_field :image, class: "input" %>
-          </div>
-
-          <%= f.submit 'Update', class: "button is-success" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</section>

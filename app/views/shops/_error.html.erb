@@ -1,0 +1,10 @@
+<% if shop.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= pluralize(shop.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% shop.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

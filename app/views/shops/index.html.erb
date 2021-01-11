@@ -29,12 +29,21 @@
                     <% end %>
                   </figure>
                 </div>
-                  <div class="title"><%= link_to shop.user.username,user_path(shop.user.id) %></div>
-                </div>
+                <div class="title"><%= link_to shop.user.username,user_path(shop.user.id) %></div>
               </div>
-              <div class="content">
-                <time><%= shop.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
-              </div>
+                <% if current_user.already_faverited?(shop) %>
+                  <%= link_to shop_favorites_path(shop), method: :delete do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to shop_favorites_path(shop), method: :post do %>
+                    <i class= "far fa-heart"></i>
+                  <% end %>
+                <% end %>
+                <%= shop.favorites.count %>
+            </div>
+            <div class="content">
+              <time><%= shop.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
             </div>
           </div>
         </div>
