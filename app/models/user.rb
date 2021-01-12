@@ -8,10 +8,11 @@ class User < ApplicationRecord
 
   has_many :shops, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :username, presence: true
-  
-  def already_faverited?(shop)
+
+  def already_favorited?(shop)
     self.favorites.exists?(shop_id: shop.id)
   end
 

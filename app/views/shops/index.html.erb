@@ -1,8 +1,8 @@
-<section class="hero is-success">
+<section class="hero is-black is-light">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        ショップ一覧
+        <i class="title", style="font-family: fantasy;">SHOP LIST</i>
       </h1>
     </div>
   </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="title"><%= link_to shop.user.username,user_path(shop.user.id) %></div>
               </div>
-                <% if current_user.already_faverited?(shop) %>
+                <% if current_user.already_favorited?(shop) %>
                   <%= link_to shop_favorites_path(shop), method: :delete do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
@@ -40,7 +40,8 @@
                     <i class= "far fa-heart"></i>
                   <% end %>
                 <% end %>
-                <%= shop.favorites.count %>
+                <%= shop.favorites.count %><br />
+                  コメント数:<%= @shop.comments.count %>
             </div>
             <div class="content">
               <time><%= shop.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新

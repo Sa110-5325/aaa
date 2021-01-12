@@ -1,4 +1,4 @@
-<section class="hero is-success">
+<section class="hero is-black">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -32,19 +32,22 @@
                   <td><%= simple_format @shop.body %></td>
                 </tr>
               </table>
-              <% if current_user.already_faverited?(@shop) %>
+              <% if @shop.user.id == current_user.id %>
+                <%= link_to "編集", edit_shop_path(@shop), class: "btn btn-success" %>
+                <%= link_to '削除', shop_path(@shop), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
+              <% end %>
+              <% if current_user.already_favorited?(@shop) %>
                 <%=link_to shop_favorites_path(@shop), method: :delete  do %>
                   <i class="fas fa-heart"></i>
                 <% end %>
               <% else %>
-                <%=link_to shop_favorites_path(@shop), method: :create do %>
+                <%=link_to shop_favorites_path(@shop), method: :post do %>
                   <i class="far fa-heart"></i>
                 <% end %>
               <% end %>
               <%= @shop.favorites.count %>
-              <% if @shop.user.id == current_user.id %>
-                <%= link_to "編集", edit_shop_path(@shop), class: "button is-success" %>
-              <% end %>
+              
+              <%= render 'shops/comment', shop: @shop %>
             </div>
           </div>
         </div>

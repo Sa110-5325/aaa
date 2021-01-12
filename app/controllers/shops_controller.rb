@@ -1,11 +1,14 @@
 class ShopsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+
   def index
     @shops = Shop.all
+    @shop = Shop.new
   end
 
   def show
     @shop = Shop.find(params[:id])
+    @comment = Comment.new
   end
 
   def new

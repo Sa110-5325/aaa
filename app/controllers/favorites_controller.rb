@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
+  
   def create
+    @shop = Shop.find(params[:shop_id])
     @favorite = current_user.favorites.create(shop_id: params[:shop_id])
     redirect_back(fallback_location: root_path)
   end

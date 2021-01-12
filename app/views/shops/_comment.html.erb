@@ -1,0 +1,11 @@
+  コメント数:<%= @shop.comments.count %>
+<% @shop.comments.each do |shop| %>
+  <%= attachment_image_tag shop, profile_image, fallback: "no-image.jpg" %>
+  <%= comment.user.username %>
+  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+<% end %>
+<%= form_for comments_path(@shop), method: :post, local: true do |f| %>
+  <%= f.text_area :comment, size:"80x5", placeholder: "コメントをここに" %>
+
+  <%= f.submit "送信" %>
+<% end %>

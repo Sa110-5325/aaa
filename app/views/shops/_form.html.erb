@@ -5,20 +5,20 @@
         <%= form_for shop do |f| %>
           <div class="field">
             <%= f.label :title, "Shop Name", class: "label" %>
-            <%= f.text_field :title, class: "input" %>
+            <%= f.text_field :title, class: "input is-warning" %>
           </div>
 
           <div class="field">
             <%= f.label :body, "Shop Discription", class: "label" %>
-            <%= f.text_area :body, class: "textarea" %>
+            <%= f.text_area :body, class: "textarea is-warning" %>
           </div>
 
           <div class="field">
             <%= f.label :image, "Picture", class: "label" %>
-            <%= f.attachment_field :image, class: "input" %>
+            <%= f.attachment_field :image, class: "input is-warning" %>
           </div>
 
-          <%= f.submit 'Post', class: "button is-success" %>
+          <%= f.submit 'Post', class: "button is-danger is-light" %>
         <% end %>
       </div>
     </div>
