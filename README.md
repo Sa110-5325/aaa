@@ -1,24 +1,39 @@
-# README
+# oiline!!!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+料理の用途に合わせて様々な油を紹介し、ブログ形式で共有できるサイトです。
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+食材や料理によって油を使い分ける楽しさ
 
-* Configuration
+### テーマを選んだ理由
 
-* Database creation
+クックパッドはレシピですが、その手前に「油」から知る事で、更に料理が楽しくなるアプリを作りたかったからです
 
-* Database initialization
+### ターゲットユーザ
 
-* How to run the test suite
+主婦
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
 
-* Deployment instructions
+毎日のお買い物前
 
-* ...
+## 設計書
+
+
+
+## チャレンジ要素一覧
+
+https://docs.google.com/spreadsheets/d/1-l0yyiETK27wmENq7rXWg-LQURJHu-h9pKBAh0ge9dQ/edit#gid=0
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
