@@ -1,4 +1,4 @@
-# beeeen!!!
+# beeeean!!!
 
 ## サイト概要
 
