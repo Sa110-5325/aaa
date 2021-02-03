@@ -27,7 +27,7 @@
 
 
 
-## チャレンジ要素一覧
+## 機能一覧
 
 https://docs.google.com/spreadsheets/d/1-l0yyiETK27wmENq7rXWg-LQURJHu-h9pKBAh0ge9dQ/edit#gid=0
 
