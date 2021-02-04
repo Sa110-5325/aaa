@@ -1,24 +1,42 @@
-# README
+# beeeean!!!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+様々なコーヒーを紹介し、ブログ形式で共有できるサイトです。
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+家庭で気軽に美味しく飲めるコーヒーの紹介
 
-* Configuration
+### テーマを選んだ理由
 
-* Database creation
+私自身コーヒーは好きで色々な種類のものを飲みます。
+生活に密着しているものをテーマに考えていたところ、私生活の中でホッと一息つきたい場面を想像し、コーヒーを選びました。
+様々な場面でコーヒーを飲む機会があると思いますが、在宅が多い世の中で一息つく時のコーヒーをもっと楽しんで頂きたく、
+コーヒーやコーヒー豆を紹介、共有できるアプリケーションをテーマに致しました。
 
-* Database initialization
+### ターゲットユーザ
 
-* How to run the test suite
+男女問わず30歳〜
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
 
-* Deployment instructions
+お買い物前
 
-* ...
+## 設計書
+
+
+
+## 機能一覧
+
+https://docs.google.com/spreadsheets/d/1-l0yyiETK27wmENq7rXWg-LQURJHu-h9pKBAh0ge9dQ/edit#gid=0
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
