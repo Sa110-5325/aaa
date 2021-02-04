@@ -1,2 +1,12 @@
-<h1>Beans#edit</h1>
-<p>Find me in app/views/beans/edit.html.erb</p>
+<h1>投稿編集</h1>
+<%= form_with model: @bean, url: bean_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.label :image %>
+  <%= f.attachment_field :image %>
+  <%= f.label :info %>
+  <%= f.text_area :info %>
+  <%= f.submit "更新する" %>
+<% end %>

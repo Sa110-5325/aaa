@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_040935) do
 
   create_table "beans", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "name"
+    t.string "name"
     t.string "image_id"
     t.integer "price"
     t.text "info"

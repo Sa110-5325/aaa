@@ -1,2 +1,7 @@
-<h1>Beans#index</h1>
-<p>Find me in app/views/beans/index.html.erb</p>
+<h1>豆一覧</h1>
+<% @beans.each do |bean| %>
+  名前<%= bean.name %>
+  値段<%= bean.price %>円
+  <%= link_to attachment_image_tag(bean, :image, :fill, 200, 200, fallback: "no-image.jpg", :size => "200x200"), bean_path(bean)  %>
+  説明<%= bean.info %>
+<% end %>

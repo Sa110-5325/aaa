@@ -1,2 +1,12 @@
-<h1>Beans#new</h1>
-<p>Find me in app/views/beans/new.html.erb</p>
+<h1>新規投稿</h1>
+<%= form_with model: @bean, url: beans_path, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :price %>
+  <%= f.text_field:price %>円
+  <%= f.label :image %>
+  <%= f.attachment_field :image %>
+  <%= f.label :説明 %>
+  <%= f.text_area :info %>
+  <%= f.submit "投稿する", class: "btn btn-outline-warning" %>
+<% end %>

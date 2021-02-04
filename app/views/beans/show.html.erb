@@ -1,2 +1,11 @@
-<h1>Beans#show</h1>
-<p>Find me in app/views/beans/show.html.erb</p>
+<h1>投稿詳細</h1>
+<%= attachment_image_tag(@bean, :image, :fill, 300, 300, fallback: "no-image.jpg", :size => "300x300") %>
+名前
+<%= @bean.name %>
+値段
+<%= @bean.price %>円
+説明
+<%= @bean.info %>
+
+<%= link_to "編集する❤︎", edit_bean_path(current_user), class: "alert alert-danger" %>
+

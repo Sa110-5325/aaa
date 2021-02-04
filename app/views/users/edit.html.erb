@@ -1,0 +1,9 @@
+<h1>会員編集</h1>
+<%= form_with model: @user, url: user_path(current_user.id) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "name" %>
+  <%= f.label :image %>
+  <%= f.attachment_field :image %>
+  <%= f.submit "変更する" %>
+<% end %>
+
