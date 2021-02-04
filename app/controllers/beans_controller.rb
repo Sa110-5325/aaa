@@ -29,6 +29,13 @@ class BeansController < ApplicationController
       redirect_to beans_path
     end
   end
+  
+  def destroy
+    bean = Bean.find(params[:id])
+    if bean.destroy
+      redirect_to beans_path
+    end
+  end
 
   private
   def bean_params
