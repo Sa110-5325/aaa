@@ -1,5 +1,5 @@
 <h1>投稿詳細</h1>
-<%= attachment_image_tag(@bean, :image, :fill, 500, 500, fallback: "no-image.jpg", :size => "500x500") %>
+<%= attachment_image_tag(@bean, :image, :fill, 400, 400, fallback: "no-image.jpg", :size => "400x400") %>
 名前
 <%= @bean.name %>
 値段
@@ -7,18 +7,30 @@
 説明
 <%= @bean.info %>
 <% if @bean.favorited_by?(current_user) %>
-    <p>
-      <%= link_to bean_favorites_path(@bean), method: :delete do %>
-        ♥<%= @bean.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to bean_favorites_path(@bean), method: :post do %>
-        ♡<%= @bean.favorites.count %> いいね
-      <% end %>
-    </p>
+  <p>
+    <%= link_to bean_favorites_path(@bean), method: :delete do %>
+      <i class="far fa-eye"></i><%= @bean.favorites.count %>いいね
+    <% end %>
+  </p>
+  <% else %>
+  <p>
+    <%= link_to bean_favorites_path(@bean), method: :post do %>
+      <i class="fas fa-eye"></i><%= @bean.favorites.count %>いいね
+    <% end %>
+  </p>
+<% end %>
+コメント件数:<%= @bean.comments.count %>
+<% @bean.comments.each do |comment| %>
+  <%= image_tag("no-image.jpg") %>
+  <%= comment.user.name %>
+  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+  <% if comment.user == current_user %>
+    <%= link_to "削除", bean_comment_path(comment.bean_id, comment.id), method: :delete %>
   <% end %>
-
+<% end %>
+<%= form_with model:[@bean, @comment], local: true do |f| %>
+  <%= f.text_area :comment, placeholder: "コメントしてね" %>
+  <%= f.submit "コメントする" %>
+<% end %><br />
 <%= link_to "編集する︎", edit_bean_path(current_user), class: "alert alert-danger" %>
 <%= link_to "削除する︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "alert alert-danger destroy_bean_#{@bean.id}" %>
