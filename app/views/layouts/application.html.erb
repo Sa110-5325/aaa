@@ -5,25 +5,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <% if user_signed_in? %>
-        <h5>こんにちは、<%= current_user.name %>さん<i class="fab fa-octopus-deploy"></i></h5>
-        <%= link_to "Top", root_path, class: "btn-sm btn-secondary" %>
-        <%= link_to "About", about_path, class: "btn btn-dark" %>
-        <%= link_to "Post Beans", new_bean_path, class: "btn-sm btn-secondary" %>
-        <%= link_to "Beans", beans_path, class: "btn btn-dark" %>
-        <%= link_to "My Page", user_path(current_user.id), class: "btn-sm btn-secondary" %>
-        <%= link_to "Log Out", destroy_user_session_path, class: "btn btn-dark", method: :delete %>
-    <% else %>
-        <%= link_to "Top", root_path, class: "btn btn-secondary" %>
-        <%= link_to "About", about_path, class: "btn-sm btn-dark" %>
-        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary" %>
-        <%= link_to "Log In", new_user_session_path, class: "btn-sm btn-dark" %>
-    <% end %>
     <%= yield %>
   </body>
 </html>

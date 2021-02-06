@@ -1,21 +1,30 @@
-<h1>豆一覧</h1>
-<div class="container">
-  <div class="row">
-    <% @beans.each do |bean| %>
-      <div class="card-body">
-        <div class="card-image">
-          <%= link_to attachment_image_tag(bean, :image, :fill, 200, 200, fallback: "no-image.jpg", :size => "200x200"), bean_path(bean)  %>
-          <div class="card-title">
-            名前<%= bean.name %>
+<div class="row">
+  <div class="col-3">
+    <%= render "layouts/sidebar" %>
+  </div>
+  <div class="col-7">
+    <h1>豆一覧</h1>
+    <div class="container">
+      <div class="row">
+        <% @beans.each do |bean| %>
+          <div class="card-body">
+            <div class="card-image">
+              <%= link_to attachment_image_tag(bean, :image, :fill, 200, 200, fallback: "no-image.jpg", :size => "200x200"), bean_path(bean)  %>
+              <div class="card-title">
+                名前<%= bean.name %>
+              </div>
+              <div class="card-price">
+                値段<%= bean.price %>円
+              </div>
+                説明<%= bean.info %>
+            </div>
+            <%= link_to "#{bean.comments.count} コメント", bean_path(bean.id) %>
           </div>
-          <div class="card-price">
-            値段<%= bean.price %>円
-          </div>
-            説明<%= bean.info %>
-        </div>
-        <%= link_to "#{bean.comments.count} コメント", bean_path(bean.id) %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
+
+
 

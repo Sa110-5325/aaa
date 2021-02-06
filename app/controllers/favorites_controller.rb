@@ -1,4 +1,9 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+  
+  def index
+    @favorites = current_user.favorites.all
+  end
   
   def create
     bean = Bean.find(params[:bean_id])
