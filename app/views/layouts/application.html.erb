@@ -8,6 +8,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header class="bg-light">
+    <%= link_to image_tag("header2.jpg"), root_path %>
+  </header>
   <body>
     <%= yield %>
   </body>

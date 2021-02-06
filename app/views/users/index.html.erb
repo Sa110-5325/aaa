@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-3">
+    <%= render "layouts/sidebar" %>
+  </div>
+  <div class="col-7">
+    <h1>自分の投稿一覧</h1>
+    <% @beans.each do |bean| %>
+      <%= link_to attachment_image_tag(bean, :image, :fill, 200, 200), users_beans_path(bean) %>
+      <%= bean.name %>
+      <%= bean.price %>
+      <%= bean.info %>
+    <% end %>
+  </div>
+</div>

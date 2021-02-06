@@ -3,12 +3,22 @@
     <%= render "layouts/sidebar" %>
   </div>
   <div class="col-7">
-    <h1>マイページ</h1>
-    <%= @user.name %>
-    <%= attachment_image_tag @user, :profile_image_id, fallback: "no-image.jpg" %>
-    <%= link_to "編集", edit_user_path, class: "btn btn-outline-secondary" %>
-    <%= link_to "My Beans" %>
-    <%= link_to "Favorite Beans",users_favorites_path, class: "btn-sm btn-outline-secondary" %>
-    <%= link_to "新規投稿", new_bean_path, class: "btn-sm btn-outline-warning" %>
+    <div class="row">
+      <div class="col-4">
+        <h1>マイページ</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no-image.jpg", :size => "200x200" %>
+      </div>
+      <div class="col-6 m-3">
+        <%= @user.name %><br />
+        <%= link_to "My Posts Beans",users_beans_path, class: "btn-sm btn-outline-warning" %><br />
+        <%= link_to "My Favorite Beans",users_favorites_path, class: "btn-sm btn-outline-warning" %><br />
+        <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-warning" %><br />
+        <%= link_to "Edit", edit_user_path, class: "btn btn-outline-secondary" %>
+      </div>
+    </div>
   </div>
 </div>

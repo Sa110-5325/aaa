@@ -3,17 +3,43 @@
     <%= render "layouts/sidebar" %>
   </div>
   <div class="col-7">
-    <h1>新規投稿</h1>
+    <div class="row pt-5">
+      <div class="col-4">
+        <h1>新規投稿</h1>
+      </div>
+    </div>
     <%= form_with model: @bean, url: beans_path, local: true do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :price %>
-      <%= f.text_field:price %>円
-      <%= f.label :image %>
-      <%= f.attachment_field :image %>
-      <%= f.label :説明 %>
-      <%= f.text_area :info %>
-      <%= f.submit "投稿する", class: "btn btn-outline-warning" %>
+      <div class="container-lg">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <%= f.label :price %>
+          <%= f.text_field:price %>円
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <%= f.label :image %>
+          <%= f.attachment_field :image %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <%= f.label :説明 %>
+          <%= f.text_area :info %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <%= f.submit "投稿する", class: "btn btn-outline-warning" %>
+        </div>
+      </div>
+      </div>
     <% end %>
   </div>
 </div>
