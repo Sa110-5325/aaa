@@ -5,6 +5,7 @@ class CreateBeans < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :image_id
       t.integer :price
+      t.float :rate
       t.text :info
 
       t.timestamps

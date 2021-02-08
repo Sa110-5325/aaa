@@ -17,7 +17,25 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-.sidebar {
+.container.sidebar {
   position: sticky;
-  top: 60px;
+  font-family: Hiragino Mincho Pro;
+}
+
+.navbar nav {
+  font-family: "Hanzipen TC";
+}
+
+.container.post {
+  background-image: url(post.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 600px;
+  border-radius: 50px;
+}
+
+.profile_image {
+  position: relative;
+  border-radius: 50%;
 }

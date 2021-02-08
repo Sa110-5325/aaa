@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_040935) do
     t.string "name"
     t.string "image_id"
     t.integer "price"
+    t.float "rate"
     t.text "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

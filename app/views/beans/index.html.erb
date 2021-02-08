@@ -2,23 +2,41 @@
   <div class="col-3">
     <%= render "layouts/sidebar" %>
   </div>
-  <div class="col-7">
+  <div class="col-8 offset-1">
     <h1>豆一覧</h1>
     <div class="container">
       <div class="row">
         <% @beans.each do |bean| %>
-          <div class="card-body">
-            <div class="card-image">
-              <%= link_to attachment_image_tag(bean, :image, :fill, 200, 200, fallback: "no-image.jpg", :size => "200x200"), bean_path(bean)  %>
+          <div class="card" style="width:18rem;">
+          <div class="card-image">
+            <%= link_to attachment_image_tag(bean, :image, fallback: "no-image.jpg", :size => "287x200"), bean_path(bean) %>
+            <div class="card-body">
               <div class="card-title">
-                名前<%= bean.name %>
+                <%= bean.name %>
               </div>
               <div class="card-price">
-                値段<%= bean.price %>円
+                <%= bean.price %>円
               </div>
-                説明<%= bean.info %>
+              <h5>評価：<%= bean.rate %>点</h5>
+              <p><%= simple_time(bean.created_at) %></p>
+              <div id="star-rate-<%= bean.id %>"></div>
+              <script>
+                $('#star-rate-<%= bean.id %>').raty({
+                size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= bean.rate %>,
+                });
+              </script>
+              <div class="card-info">
+                <%= bean.info %>
+              </div>
             </div>
             <%= link_to "#{bean.comments.count} コメント", bean_path(bean.id) %>
+          </div>
           </div>
         <% end %>
       </div>

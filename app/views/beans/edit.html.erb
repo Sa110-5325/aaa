@@ -11,6 +11,20 @@
       <%= f.text_field :price %>
       <%= f.label :image %>
       <%= f.attachment_field :image %>
+      <div class="row justify-content-start" id="star" style="padding-left: 98px;">
+      <%= f.label :rate,"評価" %>
+      <%= f.hidden_field :rate, id: :review_star %>
+      </div>
+      <script>
+        $('#star').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          scoreName: 'bean[rate]',
+          half: true,
+        });
+      </script>
       <%= f.label :info %>
       <%= f.text_area :info %>
       <%= f.submit "更新する" %>

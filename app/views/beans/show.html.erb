@@ -4,13 +4,31 @@
   </div>
   <div class="col-7">
     <h1>投稿詳細</h1>
-    <%= attachment_image_tag(@bean, :image, :fill, 400, 400, fallback: "no-image.jpg", :size => "400x400") %>
-    名前
+    <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal">
+      <%= attachment_image_tag(@bean, :image, fallback: "no-image.jpg", :size => "300x300") %>
+    </button>
+    <div class="modal fade my-3 text-center" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <%= attachment_image_tag(@bean, :image, fallback: "no-image.jpg", :size => "600x600") %>
+      <div class="modal-dialog" role="document"></div>
+      <button type="button" class="alert alert-danger" data-dismiss="modal">Close</button>
+    </div>
     <%= @bean.name %>
-    値段
     <%= @bean.price %>円
-    説明
     <%= @bean.info %>
+    <h5>評価：<%= @bean.rate %>点</h5>
+    <p><%= simple_time(@bean.created_at) %></p>
+    <div id="star-rate-<%= @bean.id %>"></div>
+      <script>
+        $('#star-rate-<%= @bean.id %>').raty({
+        size: 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= @bean.rate %>,
+        });
+      </script>  
     <% if @bean.favorited_by?(current_user) %>
       <p>
         <%= link_to bean_favorites_path(@bean), method: :delete do %>
@@ -37,8 +55,10 @@
       <%= f.text_area :comment, placeholder: "コメントしてね" %>
       <%= f.submit "コメントする" %>
     <% end %><br />
-    <%= link_to "編集する︎", edit_bean_path(current_user), class: "alert alert-danger" %>
-    <%= link_to "削除する︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "alert alert-danger destroy_bean_#{@bean.id}" %>
+    <% if @bean.user.id == current_user.id %>
+      <%= link_to "編集する︎", edit_bean_path(@bean), class: "alert alert-danger" %>
+      <%= link_to "削除する︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "alert alert-danger destroy_bean_#{@bean.id}" %>
+    <% end %>
   </div>
 </div>
 

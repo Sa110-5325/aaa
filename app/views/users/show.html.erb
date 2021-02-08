@@ -4,20 +4,19 @@
   </div>
   <div class="col-7">
     <div class="row">
-      <div class="col-4">
-        <h1>マイページ</h1>
+      <div class="col text-center pt-5">
+        <h4><%= @user.name %>さんのページ</h4>
       </div>
     </div>
     <div class="row">
-      <div class="col-4">
-        <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no-image.jpg", :size => "200x200" %>
+      <div class="profile image col-5 text-center pt-5">
+        <%= attachment_image_tag @user, :profile_image,fallback: "no-image.jpg", :size => "200x200" %>
       </div>
-      <div class="col-6 m-3">
-        <%= @user.name %><br />
+      <div class="col-5" style="padding-top: 150px;">
         <%= link_to "My Posts Beans",users_beans_path, class: "btn-sm btn-outline-warning" %><br />
         <%= link_to "My Favorite Beans",users_favorites_path, class: "btn-sm btn-outline-warning" %><br />
         <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-warning" %><br />
-        <%= link_to "Edit", edit_user_path, class: "btn btn-outline-secondary" %>
+        <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-secondary" %>
       </div>
     </div>
   </div>
