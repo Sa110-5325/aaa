@@ -4,9 +4,10 @@
     <title>beeeean!!!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= Gon::Base.render_data %>
+    <%= include_gon(:init => true) %>
     <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.raty.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,6 +15,9 @@
     <%= link_to image_tag("header2.jpg"), root_path %>
   </header>
   <body>
+
+
+    <%= javascript_include_tag "application" %>
     <%= yield %>
   </body>
 </html>

@@ -6,6 +6,7 @@ class BeansController < ApplicationController
   def show
     @bean = Bean.find(params[:id])
     @comment = Comment.new
+    gon.bean = @bean
   end
 
   def edit
@@ -30,7 +31,7 @@ class BeansController < ApplicationController
       redirect_to beans_path
     end
   end
-  
+
   def destroy
     bean = Bean.find(params[:id])
     if bean.destroy
@@ -40,7 +41,7 @@ class BeansController < ApplicationController
 
   private
   def bean_params
-    params.require(:bean).permit(:name, :price, :info, :image, :rate)
+    params.require(:bean).permit(:name, :price, :info, :image, :rate, :refresh, :bitter, :body, :fruity)
   end
 
 end

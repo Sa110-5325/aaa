@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2021_02_04_040935) do
     t.string "image_id"
     t.integer "price"
     t.float "rate"
+    t.integer "refresh"
+    t.integer "bitter"
+    t.integer "body"
+    t.integer "fruity"
     t.text "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
