@@ -55,7 +55,7 @@
     targetScore:  undefined,
     targetText:   '',
     targetType:   'hint'
-  };
+  },
 
   $.fn.raty = function(options) {
     return this.each(function() {
@@ -111,7 +111,6 @@
 
         this.self.data('raty', this);
       },
-
       // TODO: model spec
       _adjustedScore: function(score) {
         if (score || score === 0) {

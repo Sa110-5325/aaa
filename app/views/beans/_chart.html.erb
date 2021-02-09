@@ -1,0 +1,33 @@
+<canvas width="2100" height="1750" id='RaderChart'></canvas>
+<script>
+    var ctx = document.getElementById("RaderChart");
+    var bean = gon.bean;
+      var RadarChart = new Chart(ctx, {
+
+          type: 'radar',
+          data: {
+              labels: ["軽さ", "苦味", "風味", "甘み","酸味"],
+              datasets: [{
+                  label: "バランス",
+                  data: [bean.refresh, bean.bitter, bean.body, bean.fruity, bean.acidity],
+                  backgroundColor: 'RGBA(135, 206, 235, 0.5)',
+                  borderColor: 'RGBA(65, 105, 155, 1)',
+                  borderWidth: 1,
+                  pointBackgroundColor: 'RGB(46,250,177)',
+              }]
+          },
+          options: {
+
+                display: true,
+                text: '',
+            scale:{
+                ticks:{
+                    suggestedMin: 0,
+                    suggestedMax: 5,
+                    stepSize: 1,
+
+                  }
+                }
+            }
+        });
+      </script>

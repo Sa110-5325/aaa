@@ -1,0 +1,14 @@
+<h5>評価：<%= bean.rate %>点</h5>
+<p><%= simple_time(bean.created_at) %></p>
+<div id="star-rate-<%= bean.id %>"></div>
+<script>
+  $('#star-rate-<%= bean.id %>').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: <%= bean.rate %>,
+  });
+</script>

@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_040935) do
     t.integer "bitter"
     t.integer "body"
     t.integer "fruity"
+    t.integer "acidity"
     t.text "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

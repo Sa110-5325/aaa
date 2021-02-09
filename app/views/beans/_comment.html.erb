@@ -1,0 +1,13 @@
+コメント件数:<%= @bean.comments.count %>
+<% @bean.comments.each do |comment| %>
+  <%= image_tag("no-image.jpg") %>
+  <%= comment.user.name %>
+  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+  <% if comment.user == current_user %>
+    <%= link_to "削除", bean_comment_path(comment.bean_id, comment.id), method: :delete %>
+  <% end %>
+<% end %>
+<%= form_with model:[@bean, @comment], local: true do |f| %>
+  <%= f.text_area :comment, :size => "50x2", placeholder: "コメントしてね" %><br />
+  <%= f.submit "コメントする", class: "btn-sm btn-outline-dark" %>
+<% end %><br />

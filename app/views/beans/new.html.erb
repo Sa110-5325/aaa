@@ -11,72 +11,73 @@
       </div>
       <%= form_with model: @bean, url: beans_path, local: true do |f| %>
         <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-2 text-right">
-            <%= f.label :名前 %>
-          </div>
-          <div class="col-8">
-            <%= f.text_field :name,class: "form-control-sm", :size => "40x5" %>
-          </div>
-        </div><br />
-        <div class="row justify-content-center">
-          <div class="col-2 text-right">
-            <%= f.label :値段 %>
-          </div>
-          <div class="col-8">
-            <%= f.text_field :price,class: "form-control-sm", :size => "40x5" %> 円
-          </div>
-        </div><br />
-        <div class="row justify-content-center">
-          <div class="col-2 text-right">
-            <%= f.label :画像 %>
-          </div>
-          <div class="col-8">
-            <%= f.attachment_field :image %>
-          </div>
-        </div><br />
-        <div class="row justify-content-start" id="star" style="padding-left: 98px;">
-          <div class="col-2">
-            <%= f.label :評価 %>
-            <%= f.hidden_field :rate, id: :review_star %>
-          </div>
-        </div><br />
-        <script>
-          $('#star').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'bean[rate]',
-            half: true,
-          });
-        </script>
-
-
-
-        <%= f.label :スッキリ %>
-        <%= f.select :refresh, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
-        <%= f.label :ビター %>
-        <%= f.select :bitter, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
-        <%= f.label :コク %>
-        <%= f.select :body, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
-        <%= f.label :フルーティ %>
-        <%= f.select :fruity, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
-
-
-
-
-
-        <div class="row justify-content-center">
-          <div class="col-2 text-right">
-            <%= f.label :感想 %>
-          </div>
-          <div class="col-8">
-            <%= f.text_area :info, :size => "40x5" %>
-          </div>
-        </div>
-          <div class="col">
-            <%= f.submit "投稿する", class: "btn btn-outline-warning" %>
+          <div class="row justify-content-center">
+            <div class="col-2 text-right">
+              <%= f.label :名前 %>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name,class: "form-control-sm", :size => "20x5" %>
+            </div>
+          </div><br />
+          <div class="row justify-content-center">
+            <div class="col-2 text-right">
+              <%= f.label :値段 %>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :price,class: "form-control-sm", :size => "20x5" %> 円
+            </div>
+          </div><br />
+          <div class="row justify-content-center">
+            <div class="col-2 text-right">
+              <%= f.label :画像 %>
+            </div>
+            <div class="col-8">
+              <%= f.attachment_field :image %>
+            </div>
+          </div><br />
+          <div class="row justify-content-start" id="star" style="padding-left: 98px;">
+            <div class="col-2">
+              <%= f.label :評価 %>
+              <%= f.hidden_field :rate, id: :review_star %>
+            </div>
+          </div><br />
+          <script>
+            $('#star').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'bean[rate]',
+              half: true,
+            });
+          </script>
+          <div class="row justify-content-center">
+            <div class="col-2 mr-1 text-right">
+              <%= f.label :味 %>
+            </div>
+            <div class="form col-8">
+              <%= f.label :軽さ %>
+              <%= f.select :refresh, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+              <%= f.label :苦味 %>
+              <%= f.select :bitter, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+              <%= f.label :風味 %>
+              <%= f.select :body, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+              <%= f.label :甘み %>
+              <%= f.select :fruity, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+              <%= f.label :酸味 %>
+              <%= f.select :acidity, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+            </div>
+          </div><br />
+          <div class="row justify-content-center">
+            <div class="col-2 text-right">
+              <%= f.label :感想 %>
+            </div>
+            <div class="col-6">
+              <%= f.text_area :info, :size => "35x5" %>
+            </div>
+            <div class="col-2 text-right" style="padding-top: 90px;">
+              <%= f.submit "投稿する", class: "btn btn-outline-dark" %>
+            </div>
           </div>
         </div>
       <% end %>

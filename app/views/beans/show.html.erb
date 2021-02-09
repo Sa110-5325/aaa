@@ -2,88 +2,32 @@
   <div class="col-3">
     <%= render "layouts/sidebar" %>
   </div>
-  <div class="col-7">
-    <h1>投稿詳細</h1>
-    <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal">
-      <%= attachment_image_tag(@bean, :image, fallback: "no-image.jpg", :size => "300x300") %>
-    </button>
-    <div class="modal fade my-3 text-center" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <%= attachment_image_tag(@bean, :image, fallback: "no-image.jpg", :size => "600x600") %>
-      <div class="modal-dialog" role="document"></div>
-      <button type="button" class="alert alert-danger" data-dismiss="modal">Close</button>
+  <div class="col-9 pt-5">
+    <h4>投稿詳細</h4>
+    <h5 style="padding-top: 20px; padding-left: 180px;"><%= @bean.name %></h5>
+    <div class="row">
+      <div class="col-5 pb-5">
+        <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal">
+          <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "400x300" %>
+        </button>
+        <div class="modal fade my-3 text-center" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "600x600", class: "rounded-circle" %>
+          <div class="modal-dialog" role="document"></div>
+          <button type="button" class="alert alert-danger" data-dismiss="modal">Close</button>
+        </div><br />
+        <h3 style="padding-left: 180px;"><%= @bean.price %>円</h3>
+        <%= @bean.info %>
+        <%= render "beans/rate", bean: @bean %>
+        <%= render "beans/favorite_button", bean: @bean %>
+        <% if @bean.user.id == current_user.id %>
+          <%= link_to "編集︎", edit_bean_path(@bean), class: "btn-sm btn-dark" %>
+          <a style="padding-left: 20px;"><%= link_to "削除︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn-sm btn-dark destroy_bean_#{@bean.id}" %></a>
+        <% end %>
+      </div>
+      <div class="col-5">
+        <%= render "beans/chart" %>
+        <%= render "beans/comment", bean: @bean %>
+      </div>
     </div>
-    <%= @bean.name %>
-    <%= @bean.price %>円
-    <%= @bean.info %>
-    <canvas id='RaderChart'></canvas>
-    <script>
-    var ctx = document.getElementById("RaderChart");
-    var bean = gon.bean;
-      var RadarChart = new Chart(ctx, {
-          type: 'radar',
-          data: {
-              labels: ["スッキリ", "ビター", "コク", "フルーティ"],
-              datasets: [{
-                  label: bean.name,
-                  data: [bean.refresh, bean.bitter, bean.body, bean.fruity],
-                  backgroundColor: 'RGBA(135, 206, 235, 0.5)',
-                  borderColor: 'RGBA(65, 105, 225, 1)',
-                  borderWidth: 1,
-                  pointBackgroundColor: 'RGB(46,250,177)',
-              }]
-          },
-          options: {
-
-                display: true,
-                text: '',
-            
-            }
-        });
-      </script>
-    <h5>評価：<%= @bean.rate %>点</h5>
-    <p><%= simple_time(@bean.created_at) %></p>
-    <div id='star-rate-<%= @bean.id %>'></div>
-      <script>
-        $('#star-rate-<%= @bean.id %>').raty
-        size: 36,
-          starOff  '<%= asset_path('star-off.png') %>';
-          starOn : '<%= asset_path('star-on.png') %>',;
-          starHalf: '<%= asset_path('star-half.png') %>',;
-          half: true,
-          readOnly: true,
-          score: <%= @bean.rate %>
-        ;
-      </script>
-    <% if @bean.favorited_by?(current_user) %>
-      <p>
-        <%= link_to bean_favorites_path(@bean), method: :delete do %>
-          <i class="far fa-eye"></i><%= @bean.favorites.count %>いいね
-        <% end %>
-      </p>
-      <% else %>
-      <p>
-        <%= link_to bean_favorites_path(@bean), method: :post do %>
-          <i class="fas fa-eye"></i><%= @bean.favorites.count %>いいね
-        <% end %>
-      </p>
-    <% end %>
-    コメント件数:<%= @bean.comments.count %>
-    <% @bean.comments.each do |comment| %>
-      <%= image_tag("no-image.jpg") %>
-      <%= comment.user.name %>
-      <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-      <% if comment.user == current_user %>
-        <%= link_to "削除", bean_comment_path(comment.bean_id, comment.id), method: :delete %>
-      <% end %>
-    <% end %>
-    <%= form_with model:[@bean, @comment], local: true do |f| %>
-      <%= f.text_area :comment, placeholder: "コメントしてね" %>
-      <%= f.submit "コメントする" %>
-    <% end %><br />
-    <% if @bean.user.id == current_user.id %>
-      <%= link_to "編集する︎", edit_bean_path(@bean), class: "alert alert-danger" %>
-      <%= link_to "削除する︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "alert alert-danger destroy_bean_#{@bean.id}" %>
-    <% end %>
   </div>
 </div>
-

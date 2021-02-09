@@ -10,6 +10,7 @@ class CreateBeans < ActiveRecord::Migration[5.2]
       t.integer :bitter
       t.integer :body
       t.integer :fruity
+      t.integer :acidity
       t.text :info
 
       t.timestamps

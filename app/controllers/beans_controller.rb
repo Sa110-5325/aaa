@@ -41,7 +41,7 @@ class BeansController < ApplicationController
 
   private
   def bean_params
-    params.require(:bean).permit(:name, :price, :info, :image, :rate, :refresh, :bitter, :body, :fruity)
+    params.require(:bean).permit(:name, :price, :info, :image, :rate, :refresh, :bitter, :body, :fruity, :acidity)
   end
 
 end
