@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_current_user, only: [:show, :edit]
+  before_action :ensure_current_user, only: [:edit]
 
   def index
-    @beans = current_user.beans.all
+    @user = User.find(params[:user_id])
   end
 
   def show
     @user = User.find(params[:id])
-    @user.id = current_user.id
   end
 
   def edit

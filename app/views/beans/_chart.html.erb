@@ -1,4 +1,4 @@
-<canvas width="2100" height="1750" id='RaderChart'></canvas>
+<canvas style="margin-top: 100px;" width="600" height="350" id='RaderChart'></canvas>
 <script>
     var ctx = document.getElementById("RaderChart");
     var bean = gon.bean;
@@ -6,14 +6,13 @@
 
           type: 'radar',
           data: {
-              labels: ["軽さ", "苦味", "風味", "甘み","酸味"],
+              labels: ["重さ", "苦味", "風味", "甘み", "酸味"],
               datasets: [{
                   label: "バランス",
                   data: [bean.refresh, bean.bitter, bean.body, bean.fruity, bean.acidity],
-                  backgroundColor: 'RGBA(135, 206, 235, 0.5)',
-                  borderColor: 'RGBA(65, 105, 155, 1)',
+                  backgroundColor: 'RGBA(128, 0, 0, 0.3)',
+                  borderColor: 'RGBA(0, 0, 0, 0.5)',
                   borderWidth: 1,
-                  pointBackgroundColor: 'RGB(46,250,177)',
               }]
           },
           options: {

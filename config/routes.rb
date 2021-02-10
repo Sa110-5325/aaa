@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   get '/about' => 'homes#about'
-  get 'users/favorites' => 'favorites#index'
-  get 'users/beans' => 'users#index'
-  resources :users, only: [:show, :edit, :update]
+  
+
+  resources :users, only: [:show, :edit, :update] do
+    get 'beans' => 'users#index'
+    get 'favorites' => 'favorites#index'
+  end
   resources :beans, only: [:index, :show, :edit, :new, :create, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]

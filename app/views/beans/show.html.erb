@@ -1,33 +1,32 @@
-<div class="row">
+<div class="font row">
   <div class="col-3">
     <%= render "layouts/sidebar" %>
   </div>
   <div class="col-9 pt-5">
-    <h4>投稿詳細</h4>
     <h5 style="padding-top: 20px; padding-left: 180px;"><%= @bean.name %></h5>
-    <div class="row">
-      <div class="col-5 pb-5">
+    <div class="row justify-content-center">
         <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal">
-          <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "400x300" %>
+          <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "400x300",class: "rounded-circle" %>
         </button>
         <div class="modal fade my-3 text-center" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "600x600", class: "rounded-circle" %>
+          <%= attachment_image_tag @bean, :image, fallback: ".jpg", :size => "800x600" %>
           <div class="modal-dialog" role="document"></div>
           <button type="button" class="alert alert-danger" data-dismiss="modal">Close</button>
-        </div><br />
-        <h3 style="padding-left: 180px;"><%= @bean.price %>円</h3>
-        <%= @bean.info %>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <%= @bean.info %>
+          </div>
+        </div>
         <%= render "beans/rate", bean: @bean %>
         <%= render "beans/favorite_button", bean: @bean %>
+        <%= render "beans/comment", bean: @bean, comment: @comment %>
         <% if @bean.user.id == current_user.id %>
           <%= link_to "編集︎", edit_bean_path(@bean), class: "btn-sm btn-dark" %>
           <a style="padding-left: 20px;"><%= link_to "削除︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn-sm btn-dark destroy_bean_#{@bean.id}" %></a>
         <% end %>
-      </div>
-      <div class="col-5">
+        <h3 style="padding-left: 180px;"><%= @bean.price %>円</h3>
         <%= render "beans/chart" %>
-        <%= render "beans/comment", bean: @bean %>
-      </div>
     </div>
   </div>
 </div>

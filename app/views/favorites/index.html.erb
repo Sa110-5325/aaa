@@ -4,8 +4,8 @@
   </div>
   <div class="col-7">
     <h1>いいねした豆</h1>
-    <% @favorites.each do |favorite| %>
-      <%= link_to attachment_image_tag(favorite.bean, :image, :fill, 200, 200), users_favorites_path(favorite)  %>
+    <% @user.favorites.each do |favorite| %>
+      <%= link_to attachment_image_tag(favorite.bean, :image, :fill, 200, 200), user_favorites_path(favorite.user)  %>
       <%= favorite.bean.name %>
       <%= favorite.bean.price %>
       <%= favorite.bean.info %>
