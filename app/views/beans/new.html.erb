@@ -1,4 +1,3 @@
-<div class="container post mt-1">
   <div class="row">
     <div class="col-3">
       <%= render "layouts/sidebar" %>
@@ -6,7 +5,7 @@
     <div class="col-7">
       <div class="row pt-5">
         <div class="col-4 pb-5">
-          <h1>📮</h1>
+          <h4>新規投稿</h4>
         </div>
       </div>
       <%= form_with model: @bean, url: beans_path, local: true do |f| %>
@@ -35,11 +34,12 @@
               <%= f.attachment_field :image %>
             </div>
           </div><br />
-          <div class="row justify-content-start" id="star" style="padding-left: 98px;">
-            <div class="col-2">
+          <div class="row" id="star" style="padding-left: 80px;">
+            <div class="col-2" style="margin-left: 65px;">
               <%= f.label :評価 %>
               <%= f.hidden_field :rate, id: :review_star %>
             </div>
+
           </div><br />
           <script>
             $('#star').raty({
@@ -83,4 +83,3 @@
       <% end %>
     </div>
   </div>
-</div>

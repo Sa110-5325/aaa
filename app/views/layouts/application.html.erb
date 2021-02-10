@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>beeeean!!!</title>
+    <title>Beeeean!!!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= Gon::Base.render_data %>
@@ -11,8 +11,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header class="bg-light">
-    <%= link_to image_tag("header2.jpg"), root_path %>
+  <header style="padding:30px;">
+    <%= link_to "Beeeean!!!", root_path, class: "btn btn-outline-dark rounded-circle w-25", :style => "font-size: 25px;" %>
   </header>
   <body>
     <%= yield %>

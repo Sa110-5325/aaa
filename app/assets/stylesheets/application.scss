@@ -26,16 +26,22 @@
   font-family: "Hanzipen TC";
 }
 
-.container.post {
-  background-image: url(post.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 600px;
-  border-radius: 50px;
-}
-
 .profile_image {
   position: relative;
   border-radius: 50%;
+}
+
+body {
+  background-image: url(back.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: Hiragino Mincho Pro;
+}
+
+.modal-content {
+  background-image: url(bean1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
