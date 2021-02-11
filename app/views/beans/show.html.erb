@@ -7,9 +7,9 @@
       <h5 style="text-center"><%= @bean.name %></h5>
     </div>
     <div class="row">
-      <div class="col-5">
+      <div class="col-md-5">
         <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal">
-          <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "400x300",class: "rounded-circle" %>
+          <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "400x300" %>
         </button>
         <div class="modal fade my-3 text-center" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <%= attachment_image_tag @bean, :image, fallback: ".jpg", :size => "800x600" %>
@@ -24,7 +24,7 @@
         <% end %>
 
       </div>
-      <div class="col-5" style="padding-top: 50px;">
+      <div class="col-md-5" style="padding-top: 50px;">
         <%= @bean.info %>
       </div>
     </div><br />

@@ -19,11 +19,7 @@
 
 .container.sidebar {
   position: sticky;
-  font-family: Hiragino Mincho Pro;
-}
-
-.navbar nav {
-  font-family: "Hanzipen TC";
+  color: white;
 }
 
 .profile_image {
@@ -32,7 +28,7 @@
 }
 
 body {
-  background-image: url(back.jpg);
+	background-image: url(back.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -45,3 +41,37 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.carousel-item.active {
+  width: 100vw;
+	height: 100vh;
+	background-position: center center;
+	background-size: cover;
+	display: block;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+.bg-slider {
+	margin: 0;
+	max-width: 100%;
+	min-height: 100vh;
+	background-position:center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	align-items: center;
+	justify-content: center;
+}
+.bg-slider__title{
+	color: #fff;
+	font-size: 48px;
+	line-height: 1.5;
+	font-weight: bold;
+	text-align:center;
+	text-shadow: 1px 1px 1px #000;
+}
+
+
+
