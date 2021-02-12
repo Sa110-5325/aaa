@@ -1,12 +1,12 @@
 <% if bean.favorited_by?(current_user) %>
   <p>
-    <%= link_to bean_favorites_path(bean), method: :delete do %>
+    <%= link_to bean_favorites_path(bean),class: "btn-sm btn-danger", method: :delete do %>
       <i class="fas fa-mug-hot"></i><%= bean.favorites.count %>いいね
     <% end %>
   </p>
   <% else %>
   <p>
-    <%= link_to bean_favorites_path(bean), method: :post do %>
+    <%= link_to bean_favorites_path(bean),class: "btn-sm btn-warning", method: :post do %>
       <i class="fas fa-coffee"></i><%= bean.favorites.count %>いいね
     <% end %>
   </p>

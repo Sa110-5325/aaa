@@ -3,31 +3,63 @@
     <%= render "layouts/sidebar" %>
   </div>
   <div class="col-7">
-    <h1>投稿編集</h1>
-    <%= form_with model: @bean, url: bean_path do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :price %>
-      <%= f.text_field :price %>
-      <%= f.label :image %>
-      <%= f.attachment_field :image %>
-      <div class="row justify-content-start" id="star" style="padding-left: 98px;">
-      <%= f.label :rate,"評価" %>
-      <%= f.hidden_field :rate, id: :review_star %>
+    <div class="row justify-content-center">
+      <div class="col-4 text-right">
+        <h1 style="font-family: 'Kaushan Script', cursive; font-size: 40px; margin: 30px 0px 30px 0;">Edit Bean</h1>
       </div>
-      <script>
-        $('#star').raty({
-          size     : 36,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          scoreName: 'bean[rate]',
-          half: true,
-        });
-      </script>
-      <%= f.label :info %>
-      <%= f.text_area :info %>
-      <%= f.submit "更新する" %>
+    </div>
+    <%= form_with model: @bean, url: bean_path do |f| %>
+      <div class="row">
+        <div class="col-4 text-center">
+          <%= f.label :Name %>
+        </div>
+        <div class="col-6">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div><br />
+      <div class="row">
+        <div class="col-4 text-center">
+          <%= f.label :Price %>
+        </div>
+        <div class="col-6">
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+      </div><br />
+      <div class="row">
+        <div class="col-4 text-center">
+          <%= f.label :Image %>
+        </div>
+        <div class="col-6">
+          <%= f.attachment_field :image %>
+        </div>
+      </div><br />
+      <div class="row" id="star">
+        <div class="col-4 text-center">
+          <%= f.label :Estimate %>
+          <%= f.hidden_field :rate, id: :review_star %>
+          <script>
+            $('#star').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'bean[rate]',
+              half: true,
+            });
+          </script>
+        </div>
+      </div><br />
+      <div class="row">
+        <div class="col-4 text-center">
+          <%= f.label :Info %>
+        </div>
+        <div class="col-6">
+          <%= f.text_area :info, class: "form-control", :size => "20x5" %>
+        </div>
+      </div><br />
+      <div class="row justify-content-end">
+        <%= f.submit "Update", class: "btn btn-outline-light" %>
+      </div>
     <% end %>
   </div>
 </div>

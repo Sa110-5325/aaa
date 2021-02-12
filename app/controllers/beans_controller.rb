@@ -23,6 +23,8 @@ class BeansController < ApplicationController
     @bean.user_id = current_user.id
     if @bean.save
       redirect_to beans_path(@bean)
+    else
+      render "new"
     end
   end
 

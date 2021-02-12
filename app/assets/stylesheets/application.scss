@@ -17,7 +17,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-.container.sidebar {
+.sidebar_fixed {
   position: sticky;
   color: white;
 }
@@ -52,8 +52,6 @@ body {
 	align-items: center;
 	justify-content: center;
 }
-
-
 
 .bg-slider {
 	margin: 0;

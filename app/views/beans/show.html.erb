@@ -16,13 +16,12 @@
           <div class="modal-dialog" role="document"></div>
           <button type="button" class="alert alert-danger" data-dismiss="modal">Close</button>
         </div>
-        <h5 class="pb-3 text-center"><%= @bean.price %>円</h5>
+        <label class="pl-2" style="font-size: 10px;"><<クリックして画像を拡大>></label>
+        <h5 class="pb-3 text-center">¥<%= @bean.price %></h5>
         <% if @bean.user.id == current_user.id %>
           <%= link_to "編集︎", edit_bean_path(@bean), class: "btn-sm btn-dark" %>
           <a style="padding-left: 20px;"><%= link_to "削除︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn-sm btn-dark destroy_bean_#{@bean.id}" %></a>
-
         <% end %>
-
       </div>
       <div class="col-md-5" style="padding-top: 50px;">
         <%= @bean.info %>

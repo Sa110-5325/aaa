@@ -3,36 +3,37 @@
     <%= render "layouts/sidebar" %>
   </div>
   <div class="col-9">
-    <h1>Beans</h1>
+    <h1 class="text-center" style="font-family: 'Kaushan Script', cursive; font-size: 40px; margin: 30px 90px 30px 0;">Beans</h1>
     <div class="container">
       <div class="row">
         <% @beans.each do |bean| %>
-          <div style="width:18rem;">
+          <div style="width:22rem;">
             <div class="card-image">
-              <%= link_to attachment_image_tag(bean, :image, fallback: "no-image.jpg", :size => "287x200"), bean_path(bean) %>
-              <div class="card-body">
+              <%= link_to attachment_image_tag(bean, :image, class: "rounded-circle", fallback: "no-image.jpg", :size => "280x250"), bean_path(bean) %>
+              <div class="card-body text-left">
                 <div class="card-title">
                   <%= bean.name %>
                 </div>
                 <div class="card-price">
                   <%= bean.price %>円
+                  <div id="star-rate-<%= bean.id %>"></div>
+                  <script>
+                    $('#star-rate-<%= bean.id %>').raty({
+                    size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: <%= bean.rate %>,
+                    });
+                  </script>
                 </div>
-                <h5>評価：<%= bean.rate %>点</h5>
-                <p><%= simple_time(bean.created_at) %></p>
-                <div id="star-rate-<%= bean.id %>"></div>
-                <script>
-                  $('#star-rate-<%= bean.id %>').raty({
-                  size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: <%= bean.rate %>,
-                  });
-                </script>
+                評価：<%= bean.rate %>点 |
+                コメント<%= bean.comments.count %>件
+                <p>投稿日:  <%= simple_time(bean.created_at) %></p>
               </div>
-              <%= link_to "#{bean.comments.count} コメント", bean_path(bean.id) %>
+
             </div>
           </div>
         <% end %>
