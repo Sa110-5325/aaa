@@ -28,12 +28,13 @@
 }
 
 body {
-	background-image: url(back.jpg);
+	background-image: url(back1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
   font-family: Hiragino Mincho Pro;
+  color: white;
 }
 
 .modal-content {
@@ -73,5 +74,14 @@ body {
 	text-shadow: 1px 1px 1px #000;
 }
 
-
-
+.top-font h1{
+  -webkit-animation: scrollmask 10s ease 1.5s infinite;
+  -webkit-background-clip: text;
+  background-image: url(img/post.jpg);
+  color: transparent;
+  font-size: 50px;
+}
+@-webkit-keyframes scrollmask {
+  0% {background-position: 0 0;}
+  100% {background-position: 100% 0;}
+}

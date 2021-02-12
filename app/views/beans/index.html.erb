@@ -3,40 +3,37 @@
     <%= render "layouts/sidebar" %>
   </div>
   <div class="col-9">
-    <h1>豆一覧</h1>
+    <h1>Beans</h1>
     <div class="container">
       <div class="row">
         <% @beans.each do |bean| %>
-          <div class="card" style="width:18rem;">
-          <div class="card-image">
-            <%= link_to attachment_image_tag(bean, :image, fallback: "no-image.jpg", :size => "287x200"), bean_path(bean) %>
-            <div class="card-body">
-              <div class="card-title">
-                <%= bean.name %>
+          <div style="width:18rem;">
+            <div class="card-image">
+              <%= link_to attachment_image_tag(bean, :image, fallback: "no-image.jpg", :size => "287x200"), bean_path(bean) %>
+              <div class="card-body">
+                <div class="card-title">
+                  <%= bean.name %>
+                </div>
+                <div class="card-price">
+                  <%= bean.price %>円
+                </div>
+                <h5>評価：<%= bean.rate %>点</h5>
+                <p><%= simple_time(bean.created_at) %></p>
+                <div id="star-rate-<%= bean.id %>"></div>
+                <script>
+                  $('#star-rate-<%= bean.id %>').raty({
+                  size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: <%= bean.rate %>,
+                  });
+                </script>
               </div>
-              <div class="card-price">
-                <%= bean.price %>円
-              </div>
-              <h5>評価：<%= bean.rate %>点</h5>
-              <p><%= simple_time(bean.created_at) %></p>
-              <div id="star-rate-<%= bean.id %>"></div>
-              <script>
-                $('#star-rate-<%= bean.id %>').raty({
-                size: 36,
-                  starOff:  '<%= asset_path('star-off.png') %>',
-                  starOn : '<%= asset_path('star-on.png') %>',
-                  starHalf: '<%= asset_path('star-half.png') %>',
-                  half: true,
-                  readOnly: true,
-                  score: <%= bean.rate %>,
-                });
-              </script>
-              <div class="card-info">
-                <%= bean.info %>
-              </div>
+              <%= link_to "#{bean.comments.count} コメント", bean_path(bean.id) %>
             </div>
-            <%= link_to "#{bean.comments.count} コメント", bean_path(bean.id) %>
-          </div>
           </div>
         <% end %>
       </div>

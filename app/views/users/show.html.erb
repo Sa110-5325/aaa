@@ -13,10 +13,10 @@
         <%= attachment_image_tag @user, :profile_image,fallback: "no-image.jpg", :size => "200x200" %>
       </div>
       <div class="col-5" style="padding-top: 150px;">
-        <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-dark" %><br />
-        <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-dark" %><br />
-        <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-dark" %><br />
-        <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-secondary" %>
+        <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
+        <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-warning" %><br />
+        <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-light" %><br />
+        <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-warning" %>
       </div>
     </div>
   </div>
