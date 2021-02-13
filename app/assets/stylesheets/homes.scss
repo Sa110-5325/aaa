@@ -1,3 +1,60 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bg-slider {
+	max-width: 100vw;
+	min-height: 100vh;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	align-items: center;
+	justify-content: center;
+}
+
+.top-font h1{
+  -webkit-animation: scrollmask 10s ease 1.5s infinite;
+  -webkit-background-clip: text;
+  background-image: image-url("img/post.jpg");
+  color: transparent;
+  font-size: 50px;
+}
+@-webkit-keyframes scrollmask {
+  0% {background-position: 0 0;}
+  100% {background-position: 100% 0;}
+}
+
+
+
+/*固定する背景*/
+.about {
+  box-sizing: border-box;
+  color: #FFF;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 5%;
+}
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+
+
+.img-1 {
+	background-image: image-url("about1.jpg");
+}
+.img-2 {
+	background-image: image-url("about2.jpg");
+}
+.img-3 {
+	background-image: image-url("about3.jpg");
+}
+
+

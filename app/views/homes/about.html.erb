@@ -1,21 +1,18 @@
-<div class="row">
-  <div class="col-3">
-    <%= render "layouts/sidebar" %>
+<div class="about scrollbox1">
+  <div class="col">
+    <h1 class="text-center">あばうとぺーじ</h1>
+    <h1 class="text-center">こんにちは</h1>
+    <%= render "layouts/about_sidebar" %>
   </div>
-  <div class="col-7">
-    <h1>アバウト</h1>
-    <div class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%#= image_tag ("slide1.jpg") %>
-        </div>
-        <div class="carousel-item">
-          <%#= image_tag ("slide2.jpg") %>
-        </div>
-        <div class="carousel-item">
-          <%#= image_tag ("slide3.jpg") %>
-        </div>
-      </div>
-    </div>
+</div>
+<div class="about parallax-bg img-1"></div>
+<div class="about scrollbox2" style="height: 300px;">こんばんは</div>
+<div class="about parallax-bg img-2"></div>
+<div class="about scrollbox3" style="height: 300px;">はじめまして</div>
+<div class="about parallax-bg img-3"></div>
+<div class="about scrollbox3" style="height: 300px;">さようなら</div>
+<div class="row">
+  <div class="col text-right">
+    <%= link_to "SignUp", new_user_registration_path, class: "btn btn-outline-light" %>
   </div>
 </div>

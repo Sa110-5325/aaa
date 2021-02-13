@@ -14,7 +14,7 @@
         <div class="modal fade my-3 text-center" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "800x600" %>
           <div class="modal-dialog" role="document"></div>
-          <button type="button" class="alert alert-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
         </div>
         <label class="pl-2" style="font-size: 10px;"><<クリックして画像を拡大>></label>
         <h5 class="pb-3 text-center">¥<%= @bean.price %></h5>

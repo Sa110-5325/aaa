@@ -28,7 +28,7 @@
 }
 
 body {
-	background-image: url(back1.jpg);
+	background-image: image-url("back1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -37,49 +37,6 @@ body {
   color: white;
 }
 
-.modal-content {
-  background-image: url(bean1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.carousel-item.active {
-  width: 100vw;
-	height: 100vh;
-	background-position: center center;
-	background-size: cover;
-	display: block;
-	align-items: center;
-	justify-content: center;
-}
-
-.bg-slider {
-	margin: 0;
-	max-width: 100%;
-	min-height: 100vh;
-	background-position:center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	align-items: center;
-	justify-content: center;
-}
-.bg-slider__title{
-	color: #fff;
-	font-size: 48px;
-	line-height: 1.5;
-	font-weight: bold;
-	text-align:center;
-	text-shadow: 1px 1px 1px #000;
-}
-
-.top-font h1{
-  -webkit-animation: scrollmask 10s ease 1.5s infinite;
-  -webkit-background-clip: text;
-  background-image: url(img/post.jpg);
-  color: transparent;
-  font-size: 50px;
-}
-@-webkit-keyframes scrollmask {
-  0% {background-position: 0 0;}
-  100% {background-position: 100% 0;}
+.field_with_errors {
+  display: contents;
 }
