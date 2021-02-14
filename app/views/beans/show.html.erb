@@ -24,7 +24,7 @@
         <% end %>
       </div>
       <div class="col-md-5" style="padding-top: 50px;">
-        <%= @bean.info %>
+        <%= simple_format@bean.info %>
       </div>
     </div><br />
     <div class="row">
@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-        </div><br />
+        </div>
         <%= render "beans/comment", bean: @bean, comment: @comment %>
       </div>
       <div class="col-5">

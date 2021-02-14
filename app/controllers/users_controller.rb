@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_guest, only: %i[update destroy]
   before_action :ensure_current_user, only: [:edit]
 
   def index
@@ -15,19 +16,29 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render "show"
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :email, :profile_image)
   end
 
   def ensure_current_user
     @user = User.find(params[:id])
     unless @user == current_user
+      redirect_to user_path(current_user)
+    end
+  end
+
+  def check_guest
+    email = current_user.email || params[:user][:email].downcase
+    if email == 'guest@example.com'
       redirect_to user_path(current_user)
     end
   end
