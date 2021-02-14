@@ -9,24 +9,34 @@
               labels: ["重さ", "苦味", "風味", "甘み", "酸味"],
               datasets: [{
                   label: "バランス",
+                  fontColor: "white",
                   data: [bean.refresh, bean.bitter, bean.body, bean.fruity, bean.acidity],
-                  backgroundColor: 'RGBA(255, 255, 255, 0.5)',
-                  borderColor: 'RGBA(0, 0, 0, 0)',
-                  borderWidth: 1,
+                  backgroundColor: 'RGBA(255, 55, 55, 0.5)',
+                  borderColor: 'RGBA(255, 255, 255, 1)',
+                  borderWidth: 3,
               }]
           },
           options: {
                 display: true,
                 text: '',
+            lagend: {
+              display: false
+            },
             scale:{
-                gridLines: {
-                color: ['#ffffff']
-              },
-                ticks:{
+                  pointLabels: {
+                    fontColor: "white",
+                    fontSize: 16
+                  },
+                  angleLines: {
+                    color: "black"
+                  },
+                  gridLines: {
+                    color: ['#ffffff']
+                  },
+                  ticks:{
                     suggestedMin: 0,
                     suggestedMax: 5,
                     stepSize: 1,
-
                   }
                 }
             }

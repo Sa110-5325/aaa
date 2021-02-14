@@ -1,18 +1,29 @@
 <div class="about scrollbox1">
-  <div class="col">
-    <h1 class="text-center">あばうとぺーじ</h1>
-    <h1 class="text-center">こんにちは</h1>
+  <div class="col text-center mb-5">
     <%= render "layouts/about_sidebar" %>
+    <h3 style="height: 100px;">History</h3>
+    <h5 style="height: 100px;">アラビア人のカルディという山羊飼いはエチオピアの草原で放牧生活をしていました。</h5>
+    <h5 style="height: 100px;">ある日、自分の山羊があたりに茂っている木になった真っ赤な実を食べて楽しそうに飛んだり跳ねたりしていました。</h5>
+    <h5 style="height: 100px;">そこで調べてみると、甘ずっぱいおいしさに加えて、眠気がとれ爽やかな気分に。</h5>
+    <h5 style="height: 100px;">それ以来、魔法の豆として密かに愛用されるようになったということです。</h5>
   </div>
 </div>
 <div class="about parallax-bg img-1"></div>
-<div class="about scrollbox2" style="height: 300px;">こんばんは</div>
+<h5 class="about scrollbox2" style="height: 200px;">今では当たり前のように飲まれているコーヒーですが、飲み方も多種多様になっています。</h5>
+<h5 class="text-center" style="height: 100px;">一般的に家庭で飲まれているものは、ドリップコーヒーやインスタントコーヒーですが、</h5>
+<h5 class="text-center" style="height: 100px;">ここで注目して頂きたい事がコーヒーの「味」です。</h5>
 <div class="about parallax-bg img-2"></div>
-<div class="about scrollbox3" style="height: 300px;">はじめまして</div>
+<h5 class="about scrollbox3" style="height: 200px;">コーヒーには「甘み」「酸味」「塩見」「苦味」「うま味」という五原味があります。</h5>
+<h5 class="text-center" style="height: 100px;">当サイトでは日本人の嗜好にあった、「重さ」「苦味」「風味」「甘み」「酸味」という表し方にしています。</h5>
 <div class="about parallax-bg img-3"></div>
-<div class="about scrollbox3" style="height: 300px;">さようなら</div>
-<div class="row">
-  <div class="col text-right">
+<h5 class="about scrollbox3" style="height: 200px;">自分が美味しいと思ったコーヒーを共有していきましょう。</h5>
+<h5 class="text-center" style="height: 100px;">
+  会員登録をしなくても  <%= link_to 'Guest', users_guest_sign_in_path, class: "btn-lg btn-light", method: :post %>  としてログインができますので、そちらをご利用下さい。</h5>
+<div class="row justify-content-center">
+  <div class="col-1 mb-5">
     <%= link_to "SignUp", new_user_registration_path, class: "btn btn-outline-light" %>
+  </div>
+  <div class="col-1">
+    <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-light" %>
   </div>
 </div>
