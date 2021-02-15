@@ -75,3 +75,198 @@
 .container h5 {
   height: 40px;
 }
+
+
+
+
+.fadeIn_1 {
+  opacity: 0;
+  transition: 1s;
+}
+.fadeIn_1.is-show {
+  opacity: 1;
+}
+
+
+.fadeIn_2 {
+  opacity: 0;
+  transition: 2s;
+}
+.fadeIn_2.is-show {
+  opacity: 1;
+}
+
+
+.fadeIn_3 {
+  opacity: 0;
+  transition: 3s;
+}
+.fadeIn_3.is-show {
+  opacity: 1;
+}
+
+
+.fadeIn_4 {
+  opacity: 0;
+  transition: 4s;
+}
+.fadeIn_4.is-show {
+  opacity: 1;
+}
+
+
+.fadeIn_5 {
+  opacity: 0;
+  transition: 5s;
+}
+.fadeIn_5.is-show {
+  opacity: 1;
+}
+
+
+.fadeIn_6 {
+  opacity: 0;
+  transition: 6s;
+}
+.fadeIn_6.is-show {
+  opacity: 1;
+}
+
+.fadeIn_7 {
+  opacity: 0;
+  transition: 7s;
+}
+.fadeIn_7.is-show {
+  opacity: 1;
+}
+
+.fadeIn_8 {
+  opacity: 0;
+  transition: 8s;
+}
+.fadeIn_8.is-show {
+  opacity: 1;
+}
+
+
+
+
+.fadeIn_second_1 {
+  opacity: 0;
+  transition: 1s;
+}
+
+.fadeIn_second_1.is-show {
+  opacity: 1;
+}
+
+.fadeIn_second_2 {
+  opacity: 0;
+  transition: 2s;
+}
+
+.fadeIn_second_2.is-show {
+  opacity: 1;
+}
+
+.fadeIn_second_3 {
+  opacity: 0;
+  transition: 3s;
+}
+
+.fadeIn_second_3.is-show {
+  opacity: 1;
+}
+
+.fadeIn_second_4 {
+  opacity: 0;
+  transition: 4s;
+}
+
+.fadeIn_second_4.is-show {
+  opacity: 1;
+}
+
+.fadeIn_second_5 {
+  opacity: 0;
+  transition: 5s;
+}
+
+.fadeIn_second_5.is-show {
+  opacity: 1;
+}
+
+.fadeIn_second_6 {
+  opacity: 0;
+  transition: 6s;
+}
+
+.fadeIn_second_6.is-show {
+  opacity: 1;
+}
+
+.fadeIn_second_7 {
+  opacity: 0;
+  transition: 7s;
+}
+
+.fadeIn_second_7.is-show {
+  opacity: 1;
+}
+
+.fadeIn_second_8 {
+  margin-bottom: 30px;
+  opacity: 0;
+  transition: 8s;
+}
+
+.fadeIn_second_8.is-show {
+  opacity: 1;
+}
+
+.fadeIn_second_9 {
+  opacity: 0;
+  transition: 9s;
+}
+
+.fadeIn_second_9.is-show {
+  opacity: 1;
+}
+
+
+
+/*ハンバーガーメニューのアニメーション*/
+.navbar-dark .navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 0px;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  position: relative;
+}
+.navbar-dark .navbar-toggler-icon {
+  background-image:none; /* この行で背景画像を無効化 */
+  background-color: #fff;
+  width: 30px;
+  height: 2px;
+  display: block;
+  position: absolute;
+  transition: ease .5s;
+}
+
+.navbar-toggler-icon:nth-of-type(1) {top:7px;}
+.navbar-toggler-icon:nth-of-type(2) {top:14px;}
+.navbar-toggler-icon:nth-of-type(3) {top:21px;}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(1) {
+top:13px;
+transform: rotate(45deg);
+}
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(2) {
+opacity: 0;
+}
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(3) {
+top:13px;
+transform: rotate(-45deg);
+}
