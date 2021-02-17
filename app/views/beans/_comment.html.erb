@@ -6,7 +6,7 @@
         <td><%= comment.user.name %></td>
         <td><%= comment.comment %></td>
         <% if comment.user == current_user %>
-          <td><%= link_to "削除", bean_comment_path(comment.bean_id, comment.id), method: :delete, remote: true %></td>
+          <td><%= link_to "削除", bean_comment_path(comment.bean_id, comment.id), class: "btn-sm btn-danger", method: :delete, remote: true %></td>
         <% end %>
       </tr>
     <% end %>

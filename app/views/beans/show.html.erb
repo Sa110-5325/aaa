@@ -55,7 +55,7 @@
       </div>
       <div class="row">
         <div class="col-4 ml-3 text-right">
-          <buttons type="button" class="btn-sm btn-dark" data-toggle="modal" data-target="#exampleModalCenter" data-cusno=1 data-visitday="2019-07-01">
+          <buttons type="button" class="btn btn-outline-light" style="border-radius: 20px;" data-toggle="modal" data-target="#exampleModalCenter" data-cusno=1 data-visitday="2019-07-01">
             コメント投稿
           </buttons>
         </div>
@@ -66,7 +66,7 @@
                 <%= form_with model:[@bean, @comment] do |f| %>
                   <%= f.text_area :comment, :size => "50x4", placeholder: "コメントしてね" %>
                   <div class="modal-footer">
-                    <%= f.submit "コメントする", class: "alert alert-dark" %>
+                    <%= f.submit "コメントする", class: "btn btn-outline-dark",  style: "border-radius: 50px;" %>
                   </div>
                 <% end %>
               </div>
