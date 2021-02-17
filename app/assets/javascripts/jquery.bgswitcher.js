@@ -8,7 +8,8 @@
  */
  /*global Image*/
  /*global jQuery*/
- 
+
+document.addEventListener("turbolinks:load", function() {
 (function($) {
   'use strict';
 
@@ -560,3 +561,4 @@
 
   $.BgSwitcher = BgSwitcher;
 }(jQuery));
+})

@@ -1,6 +1,7 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
 
 .container.sidebar_fixed {
   margin-left: 30px;
@@ -349,3 +350,84 @@ opacity: 0;
 top:13px;
 transform: rotate(-45deg);
 }
+
+//  Top
+// ボタン本体
+button{
+  background: none;
+  border: none;
+  position: relative;
+  height: 40px;
+  padding: 0 2em;
+  cursor: pointer;
+  transition: 800ms ease all;
+}
+//　ボタンホバー時
+button:hover{
+  background: none;
+  color: white;
+}
+//　上の線表示
+button:before,button:after{
+  content:'';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: white;
+  transition: 400ms ease all;
+}
+//　下の線表示
+button:after{
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+//　ホバー後
+button:hover:before,button:hover:after{
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+
+// //  about
+// // ボタン本体
+// buttons {
+//   background: none;
+//   border: none;
+//   position: relative;
+//   height: 40px;
+//   padding: 0 2em;
+//   cursor: pointer;
+//   transition: 800ms ease all;
+// }
+// //　ボタンホバー時
+// buttons:hover{
+//   background: none;
+//   color: white;
+// }
+// //　上の線表示
+// buttons:before,button:after{
+//   content:'';
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   height: 2px;
+//   width: 0;
+//   background: white;
+//   transition: 400ms ease all;
+// }
+// //　下の線表示
+// buttons:after{
+//   right: inherit;
+//   top: inherit;
+//   left: 0;
+//   bottom: 0;
+// }
+// //　ホバー後
+// buttons:hover:before,button:hover:after{
+//   width: 100%;
+//   transition: 800ms ease all;
+// }
