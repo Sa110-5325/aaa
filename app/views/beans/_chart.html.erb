@@ -1,4 +1,4 @@
-<canvas  width="1200" height="950" id='RaderChart'></canvas>
+<canvas  width="900" height="450" id='RaderChart'></canvas>
 <script>
     var ctx = document.getElementById("RaderChart");
     var bean = gon.bean;
@@ -11,9 +11,9 @@
                   label: "バランス",
                   fontColor: "white",
                   data: [bean.refresh, bean.bitter, bean.body, bean.fruity, bean.acidity],
-                  backgroundColor: 'RGBA(255, 55, 55, 0.5)',
+                  backgroundColor: 'RGBA(115, 78, 48, 0.5)',
                   borderColor: 'RGBA(255, 255, 255, 1)',
-                  borderWidth: 3
+                  borderWidth: 1
               }]
           },
           options: {
@@ -28,10 +28,11 @@
                     fontSize: 16
                   },
                   angleLines: {
-                    color: "black"
+                    color: ["#eee8aa"]
+
                   },
                   gridLines: {
-                    color: ['#ffffff']
+                    color: ['#eee8aa']
                   },
                   ticks:{
                     suggestedMin: 0,

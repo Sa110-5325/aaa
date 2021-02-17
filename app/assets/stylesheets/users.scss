@@ -1,3 +1,45 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fadeIn_post_1 {
+  opacity: 0;
+  // ↓左から右にフェードイン
+  // transform: translate(50%, 0);
+  transition: 1s;
+}
+.fadeIn_post_1.is-show {
+  // transform: translate(0, 0);
+  opacity: 1;
+}
+
+
+.fadeIn_post_2 {
+  opacity: 0;
+  // transform: translate(50%, 0);
+  transition: 2s;
+}
+.fadeIn_post_2.is-show {
+  // transform: translate(0, 0);
+  opacity: 1;
+}
+
+.fadeIn_post_3 {
+  opacity: 0;
+  // transform: translate(50%, 0);
+  transition: 3s;
+}
+.fadeIn_post_3.is-show {
+  // transform: translate(0, 0);
+  opacity: 1;
+}
+
+.fadeIn_post_4 {
+  opacity: 0;
+  // transform: translate(50%, 0);
+  transition: 4s;
+}
+.fadeIn_post_4.is-show {
+  // transform: translate(0, 0);
+  opacity: 1;
+}

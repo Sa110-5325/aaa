@@ -1,14 +1,36 @@
-<div class="row">
-  <div class="col-3">
-    <%= render "layouts/sidebar" %>
-  </div>
-  <div class="col-7">
-    <h1>いいねした豆</h1>
-    <% @user.favorites.each do |favorite| %>
-      <%= link_to attachment_image_tag(favorite.bean, :image, :fill, 200, 200), user_favorites_path(favorite.user)  %>
-      <%= favorite.bean.name %>
-      <%= favorite.bean.price %>
-      <%= favorite.bean.info %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= render "layouts/sidebar" %>
+    </div>
+    <div class="col-7 my-5">
+      <h5 class="text-center">My Favorite Beans</h5>
+      <% @user.favorites.each do |favorite| %>
+        <div class="row my-5">
+          <div class="col-6">
+            <section class="inview_re fadeIn_favorite_1">
+              <%= link_to attachment_image_tag(favorite.bean, :image, :fill, 300, 300, class: "rounded-circle"), user_favorites_path(favorite.user)  %>
+            </section>
+          </div>
+          <div class="col-6" style="padding-top: 60px;">
+            <section class="inview_re fadeIn_favorite_2">
+              <div class="row">
+                <strong class="h4"><%= favorite.bean.name %></strong>
+              </div>
+            </section>
+            <section class="inview_re fadeIn_favorite_3">
+              <div class="row" style="padding-left: 50px;">
+                ¥<%= favorite.bean.price %>
+              </div>
+            </section>
+            <section class="inview_re fadeIn_favorite_4">
+              <div class="row" style="padding-left: 100px;">
+                <%= favorite.bean.info %>
+              </div>
+            </section>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

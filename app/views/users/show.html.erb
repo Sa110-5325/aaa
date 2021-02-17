@@ -1,24 +1,26 @@
-<div class="row">
-  <div class="col-3">
-    <%= render "layouts/sidebar" %>
-  </div>
-  <div class="col-7">
-    <div class="row">
-      <div class="col text-center pt-5 ml-1">
-        <h4><%= @user.name %>さんのページ</h4>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= render "layouts/sidebar" %>
     </div>
-    <div class="row justify-content-center">
-      <div class="profile image py-5">
-        <%= attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", :size => "200x200" %>
+    <div class="col-7">
+      <div class="row">
+        <div class="col text-center pt-5 ml-1">
+          <h4><%= @user.name %>さんのページ</h4>
+        </div>
       </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-3 text-left">
-      <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
-      <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-warning" %><br />
-      <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-light" %><br />
-      <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-warning" %>
+      <div class="row justify-content-center">
+        <div class="profile image py-5">
+          <%= attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", :size => "200x200" %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-4 text-left">
+        <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
+        <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-warning" %><br />
+        <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-light" %><br />
+        <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-warning" %>
+        </div>
       </div>
     </div>
   </div>

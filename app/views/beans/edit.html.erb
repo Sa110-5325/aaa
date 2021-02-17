@@ -1,66 +1,68 @@
-<div class="row">
-  <div class="col-3">
-    <%= render "layouts/sidebar" %>
-  </div>
-  <div class="col-7">
-    <div class="row justify-content-center">
-      <div class="col-4 text-right">
-        <h1 style="font-family: 'Kaushan Script', cursive; font-size: 40px; margin: 30px 0px 30px 0;">Edit Bean</h1>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= render "layouts/sidebar" %>
     </div>
-    <%= form_with model: @bean, url: bean_path do |f| %>
-      <div class="row">
-        <div class="col-4 text-center">
-          <%= f.label :Name %>
+    <div class="col-7">
+      <div class="row justify-content-center">
+        <div class="col-4 text-right">
+          <h1 style="font-family: 'Kaushan Script', cursive; font-size: 40px; margin: 30px 0px 30px 0;">Edit Bean</h1>
         </div>
-        <div class="col-6">
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-      </div><br />
-      <div class="row">
-        <div class="col-4 text-center">
-          <%= f.label :Price %>
-        </div>
-        <div class="col-6">
-          <%= f.text_field :price, class: "form-control" %>
-        </div>
-      </div><br />
-      <div class="row">
-        <div class="col-4 text-center">
-          <%= f.label :Image %>
-        </div>
-        <div class="col-6">
-          <%= f.attachment_field :image %>
-        </div>
-      </div><br />
-      <div class="row" id="star">
-        <div class="col-4 text-center">
-          <%= f.label :Estimate %>
-          <%= f.hidden_field :rate, id: :review_star %>
-          <script>
-            $('#star').raty({
-              size     : 36,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              scoreName: 'bean[rate]',
-              half: true,
-            });
-          </script>
-        </div>
-      </div><br />
-      <div class="row">
-        <div class="col-4 text-center">
-          <%= f.label :Info %>
-        </div>
-        <div class="col-6">
-          <%= f.text_area :info, class: "form-control", :size => "20x5" %>
-        </div>
-      </div><br />
-      <div class="row justify-content-end">
-        <%= f.submit "Update", class: "btn btn-outline-light" %>
       </div>
-    <% end %>
+      <%= form_with model: @bean, url: bean_path do |f| %>
+        <div class="row">
+          <div class="col-4 text-center">
+            <%= f.label :名前 %>
+          </div>
+          <div class="col-6">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div><br />
+        <div class="row">
+          <div class="col-4 text-center">
+            <%= f.label :金額 %>
+          </div>
+          <div class="col-6">
+            <%= f.text_field :price, class: "form-control" %>
+          </div>
+        </div><br />
+        <div class="row">
+          <div class="col-4 text-center">
+            <%= f.label :画像 %>
+          </div>
+          <div class="col-6">
+            <%= f.attachment_field :image %>
+          </div>
+        </div><br />
+        <div class="row" id="star">
+          <div class="col-4 text-center">
+            <%= f.label :評価 %>
+            <%= f.hidden_field :rate, id: :review_star %>
+            <script>
+              $('#star').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                scoreName: 'bean[rate]',
+                half: true,
+              });
+            </script>
+          </div>
+        </div><br />
+        <div class="row">
+          <div class="col-4 text-center">
+            <%= f.label :感想 %>
+          </div>
+          <div class="col-6">
+            <%= f.text_area :info, class: "form-control", :size => "20x5" %>
+          </div>
+        </div><br />
+        <div class="row justify-content-end">
+          <%= f.submit "Update", class: "btn btn-outline-light" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

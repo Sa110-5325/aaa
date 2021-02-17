@@ -1,3 +1,11 @@
 // Place all the styles related to the beans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fadeIn_bean {
+  opacity: 0;
+  transition: 2s;
+}
+.fadeIn_bean.is-show {
+  opacity: 1;
+}

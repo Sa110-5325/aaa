@@ -1,23 +1,33 @@
-<div class="row">
-  <div class="col-3">
-    <%= render "layouts/sidebar" %>
-  </div>
-  <div class="col-7">
-    <div class="row">
-      <div class="col">
-        <%= @user.name %>さんの投稿一覧
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= render "layouts/sidebar" %>
     </div>
-    <div class="row">
+    <div class="col-7 my-5">
+      <h5 class="text-center"><%= @user.name %>さんの投稿一覧</h5>
       <% @user.beans.each do |bean| %>
-        <div class="col-4">
-          <div class="card-image">
-            <%= link_to attachment_image_tag(bean, :image, :fill, 200, 200), bean_path(bean) %>
-            <div class="card-body">
-              <%= bean.name %>
-              <%= bean.price %>
-              <%= bean.info %>
-            </div>
+        <div class="row my-5">
+          <div class="col-6">
+            <section class="inview_re fadeIn_post_1">
+              <%= link_to attachment_image_tag(bean, :image, :fill, 300, 300, class: "rounded-circle"), bean_path(bean) %>
+            </section>
+          </div>
+          <div class="col-6" style="padding-top: 60px;">
+            <section class="inview_re fadeIn_post_2">
+              <div class="row">
+                <strong class="h4"><%= bean.name %></strong>
+              </div>
+            </section>
+            <section class="inview_re fadeIn_post_3">
+              <div class="row" style="padding-left: 50px;">
+                ¥<%= bean.price %>
+              </div>
+            </section>
+            <section class="inview_re fadeIn_post_4">
+              <div class="row" style="padding-left: 100px;">
+                <%= bean.info %>
+              </div>
+            </section>
           </div>
         </div>
       <% end %>

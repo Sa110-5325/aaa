@@ -1,13 +1,13 @@
-<div class="row">
-  <div class="col-3">
-    <%= render "layouts/sidebar" %>
-  </div>
-  <div class="col-9 py-4">
-    <div style="padding-left: 170px;">
-      <h5 style="text-center"><%= @bean.name %></h5>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <%= render "layouts/sidebar" %>
     </div>
-    <div class="row">
-      <div class="col-md-5">
+    <div class="col-8" style="padding: 50px;">
+      <div class="row justify-content-center">
+        <h5><%= @bean.name %></h5>
+      </div>
+      <div class="row justify-content-center">
         <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal">
           <%= attachment_image_tag @bean, :image, fallback: "no-image.jpg", :size => "400x300" %>
         </button>
@@ -16,55 +16,66 @@
           <div class="modal-dialog" role="document"></div>
           <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
         </div>
+      </div>
+      <div class="row justify-content-center">
         <label class="pl-2" style="font-size: 10px;"><<クリックして画像を拡大>></label>
-        <h5 class="pb-3 text-center">¥<%= @bean.price %></h5>
-        <% if @bean.user.id == current_user.id %>
-          <%= link_to "編集︎", edit_bean_path(@bean), class: "btn-sm btn-dark" %>
-          <a style="padding-left: 20px;"><%= link_to "削除︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn-sm btn-dark destroy_bean_#{@bean.id}" %></a>
-        <% end %>
       </div>
-      <div class="col-md-5" style="padding-top: 50px;">
-        <%= simple_format@bean.info %>
-      </div>
-    </div><br />
-    <div class="row">
-      <div class="col-5">
-        <div class="row text-center">
-          <div class="col-6">
-            <%= render "beans/favorite_button", bean: @bean %>
-          </div>
-          <div class="col-6">
-            <%= @bean.comments.count %>コメント
-          </div>
+      <div class="row">
+        <div class="col-7 text-right">
+          <h3>¥<%= @bean.price %></h3>
         </div>
-        <div class="row text-center">
-          <div class="col-6">
-            <%= render "beans/rate", bean: @bean %>
-          </div>
-          <div class="col-6">
-            <button type="button" class="btn-sm btn-dark" data-toggle="modal" data-target="#exampleModalCenter" data-cusno=1 data-visitday="2019-07-01">
-              コメント投稿
-            </button>
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <%= form_with model:[@bean, @comment], local: true do |f| %>
-                      <%= f.text_area :comment, :size => "50x4", placeholder: "コメントしてね" %>
-                      <div class="modal-footer">
-                        <%= f.submit "コメントする", class: "alert alert-dark" %>
-                      </div>
-                    <% end %>
+        <div class="col-3 text-center">
+          <% if @bean.user.id == current_user.id %>
+            <%= link_to "編集︎", edit_bean_path(@bean), class: "btn-sm btn-dark" %>
+            <a style="padding-left: 20px;"><%= link_to "削除︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn-sm btn-dark destroy_bean_#{@bean.id}" %></a>
+          <% end %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <%= render "beans/chart" %>
+      </div><br />
+      <div class="row">
+        <div class="col mb-5 text-center">
+          <div id="star-rate-<%= @bean.id %>"></div>
+          <%= render "beans/rate", bean: @bean %>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <%= simple_format@bean.info %>
+        </div>
+      </div><br />
+      <div class="row justify-content-center">
+        <div class="col-4 text-right">
+          <div id="bean_<%= @bean.id %>"><%= render "beans/favorite_button", bean: @bean %></div>
+        </div>
+        <div class="col-4">
+          <div class="comments-count"><%= @bean.comments.count %>コメント</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 ml-3 text-right">
+          <button type="button" class="btn-sm btn-dark" data-toggle="modal" data-target="#exampleModalCenter" data-cusno=1 data-visitday="2019-07-01">
+            コメント投稿
+          </button>
+        </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <%= form_with model:[@bean, @comment] do |f| %>
+                  <%= f.text_area :comment, :size => "50x4", placeholder: "コメントしてね" %>
+                  <div class="modal-footer">
+                    <%= f.submit "コメントする", class: "alert alert-dark" %>
                   </div>
-                </div>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
-        <%= render "beans/comment", bean: @bean, comment: @comment %>
-      </div>
-      <div class="col-5">
-        <%= render "beans/chart" %>
+        <div class="col-7">
+          <div class="comments"><%= render "beans/comment", bean: @bean, comment: @comment %></div>
+        </div>
       </div>
     </div>
   </div>

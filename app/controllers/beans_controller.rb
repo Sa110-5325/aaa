@@ -31,7 +31,7 @@ class BeansController < ApplicationController
   def update
     if @bean = Bean.find(params[:id])
       @bean.update(bean_params)
-      redirect_to beans_path
+      redirect_to bean_path(@bean)
     end
   end
 

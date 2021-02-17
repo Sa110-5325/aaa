@@ -1,3 +1,4 @@
+<div class="container">
   <div class="row">
     <div class="col-3">
       <%= render "layouts/sidebar" %>
@@ -35,7 +36,7 @@
             </div>
           </div><br />
           <div class="row" id="star" style="padding-left: 80px;">
-            <div class="col-2" style="margin-left: 65px;">
+            <div class="col-2" style="padding-left: 30px;">
               <%= f.label :評価 %>
               <%= f.hidden_field :rate, id: :review_star %>
             </div>
@@ -55,7 +56,7 @@
             <div class="col-2 mr-1 text-right">
               <%= f.label :味 %>
             </div>
-            <div class="form col-8">
+            <div class="col-8">
               <%= f.label :重さ %>
               <%= f.select :refresh, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
               <%= f.label :苦味 %>
@@ -72,10 +73,12 @@
             <div class="col-2 text-right">
               <%= f.label :感想 %>
             </div>
-            <div class="col-6">
+            <div class="col-8">
               <%= f.text_area :info, :size => "35x5" %>
             </div>
-            <div class="col-2 text-right" style="padding-top: 90px;">
+          </div>
+          <div class="row pt-3">
+            <div class="col-10 text-right">
               <%= f.submit "投稿する", class: "btn btn-outline-light" %>
             </div>
           </div>
@@ -83,3 +86,4 @@
       <% end %>
     </div>
   </div>
+</div>
