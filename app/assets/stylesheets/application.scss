@@ -18,7 +18,7 @@
 @import 'font-awesome';
 
 .sidebar_fixed {
-  position: sticky;
+  position: fixed;
   color: white;
 }
 
@@ -39,4 +39,17 @@ body {
 
 .field_with_errors {
   display: contents;
+}
+
+/*kaminariのデザイン*/
+.pagination>li>a {
+  border: none;
+  background: none;
+  color: white;
+}
+.pagination>.active>a {
+  background-color: #ff5400a8!important; /*デフォルトに点数負けしているため!importantで最優先*/
+}
+.pagination>li>a:hover {
+  color: black;
 }

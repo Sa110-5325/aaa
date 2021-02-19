@@ -4,7 +4,7 @@
       <%= render "layouts/sidebar" %>
     </div>
     <div class="col-7 my-5">
-      <h5 class="text-center"><%= @user.name %>さんの投稿一覧</h5>
+      <h3 class="text-center"><%= @user.name %>'s Posts</h3>
       <% @user.beans.each do |bean| %>
         <div class="row my-5">
           <div class="col-6">
@@ -33,4 +33,7 @@
       <% end %>
     </div>
   </div>
+</div>
+<div class="row justify-content-center pb-3" style="padding-top: 130px;">
+  ©︎2020-2021 Takafumeeee!!!.
 </div>

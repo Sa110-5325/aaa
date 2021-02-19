@@ -30,7 +30,10 @@
           <div class="col-4 text-center">
             <%= f.label :画像 %>
           </div>
-          <div class="col-6">
+          <div class="col-2">
+            <%= attachment_image_tag(@bean, :image, class: "rounded-circle", fallback: "no-image.jpg", :size => "70x70") %>
+          </div>
+          <div class="col-4">
             <%= f.attachment_field :image %>
           </div>
         </div><br />

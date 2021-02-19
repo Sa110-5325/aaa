@@ -1,10 +1,11 @@
 class BeansController < ApplicationController
 
   def index
-    @beans = Bean.all
+    @beans = Bean.all.page(params[:page]).per(6).order(" created_at DESC")
   end
 
   def show
+    # @user = User.find_by(params[:user_id, :bean_id])
     @bean = Bean.find(params[:id])
     @comment = Comment.new
     gon.bean = @bean
@@ -29,9 +30,11 @@ class BeansController < ApplicationController
   end
 
   def update
-    if @bean = Bean.find(params[:id])
-      @bean.update(bean_params)
+    @bean = Bean.find(params[:id])
+    if @bean.update(bean_params)
       redirect_to bean_path(@bean)
+    else
+      render "edit"
     end
   end
 

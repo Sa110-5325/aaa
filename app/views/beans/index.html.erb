@@ -8,7 +8,7 @@
       <div class="row">
         <% @beans.each do |bean| %>
           <section class="inview_re fadeIn_bean">
-            <div style="margin: 0 30px 60px 0;">
+            <div style="margin: 0 30px 100px 0;">
               <%= link_to attachment_image_tag(bean, :image, class: "rounded-circle", fallback: "no-image.jpg", :size => "250x250"), bean_path(bean) %>
               <div class="card-title">
                 <%= bean.name %>
@@ -31,14 +31,18 @@
               評価：<%= bean.rate %>点 |
               コメント<%= bean.comments.count %>件
               <p>投稿日:  <%= simple_time(bean.created_at) %></p>
+              <%= link_to bean.user.name, user_path(bean.user), class: "btn-sm btn-outline-light" %>さんの紹介
             </div>
           </section>
         <% end %>
       </div>
+      <div class="row justify-content-center">
+        <%= paginate @beans %>
+      </div>
     </div>
   </div>
-  <div class="row justify-content-center mb-3">
-    ©︎2021 Beeeean!!! Copy Right Reseved.
+  <div class="row justify-content-center mt-5 mb-3">
+    ©︎2020-2021 Takafumeeee!!!.
   </div>
 </div>
 
