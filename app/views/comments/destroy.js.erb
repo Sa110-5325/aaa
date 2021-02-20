@@ -1,2 +1,2 @@
-$("#bean_<%= @comment.id %> .comments-count").html("<%= @bean.comments.count %>コメント");
+$("#bean_<%= @comment.id %>").remove();
 $(".comments").html("<%= j(render 'beans/comment', bean: @bean) %>");

@@ -1,14 +1,12 @@
 <table>
-  <tbody>
-    <% bean.comments.each do |comment| %>
-      <tr id="bean_<%= comment.id %>">
-        <td><%=link_to attachment_image_tag(comment.user, :profile_image, :fill, 50, 50, fallback: "no-image.jpg", size: "30x30"), user_path(comment.user) %></td>
-        <td><%= comment.user.name %></td>
-        <td><%= comment.comment %></td>
-        <% if comment.user == current_user %>
-          <td><%= link_to "削除", bean_comment_path(comment.bean_id, comment.id), class: "btn-sm btn-danger", method: :delete, remote: true %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table><br>
+  <% bean.comments.each do |comment| %>
+    <tr id="bean_<%= comment.id %>">
+      <td><%=link_to attachment_image_tag(comment.user, :profile_image, :fill, 50, 50, fallback: "no-image.jpg", size: "30x30"), user_path(comment.user) %></td>
+      <td><%= comment.user.name %></td>
+      <td><%= comment.comment %></td>
+      <% if comment.user == current_user %>
+        <td><%= link_to "削除", bean_comment_path(comment.bean_id, comment.id), class: "btn-sm btn-danger", method: :delete, remote: true %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

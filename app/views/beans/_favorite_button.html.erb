@@ -1,14 +1,14 @@
 
 <% if bean.favorited_by?(current_user) %>
   <p>
-    <%= link_to bean_favorites_path(bean),class: "btn btn-outline-light", style: "border-radius: 20px;", method: :delete, remote: true do %>
-      <i class="far fa-thumbs-up"></i><%= bean.favorites.count %>
+    <%= link_to bean_favorites_path(bean),class: "btn-sm btn-outline-warning", style: "border-radius: 20px;", method: :delete, remote: true do %>
+      <i class="far fa-thumbs-up"></i><%= bean.favorites.count %>いいね
     <% end %>
   </p>
   <% else %>
   <p>
-    <%= link_to bean_favorites_path(bean),class: "btn btn-outline-primary", style: "border-radius: 20px;", method: :post, remote: true do %>
-     <i class="far fa-thumbs-up"></i><%= bean.favorites.count %>いいねする
+    <%= link_to bean_favorites_path(bean),class: "btn-sm btn-outline-danger", style: "border-radius: 20px;", method: :post, remote: true do %>
+     <i class="far fa-thumbs-up"></i><%= bean.favorites.count %>いいね
     <% end %>
   </p>
 <% end %>
