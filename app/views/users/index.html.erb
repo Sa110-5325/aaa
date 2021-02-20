@@ -5,7 +5,7 @@
     </div>
     <div class="col-7 my-5">
       <h3 class="text-center"><%= @user.name %>'s Posts</h3>
-      <% @user.beans.each do |bean| %>
+      <% @user.beans.reverse.each do |bean| %>
         <div class="row my-5">
           <div class="col-6">
             <section class="inview_re fadeIn_post_1">
@@ -33,6 +33,7 @@
       <% end %>
     </div>
   </div>
+  <%#= paginate @user.beans %>
 </div>
 <div class="row justify-content-center pb-3" style="padding-top: 130px;">
   ©︎2020-2021 Takafumeeee!!!.

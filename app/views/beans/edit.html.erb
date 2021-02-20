@@ -5,11 +5,26 @@
     </div>
     <div class="col-7">
       <div class="row justify-content-center">
-        <div class="col-4 text-right">
-          <h1 style="font-family: 'Kaushan Script', cursive; font-size: 40px; margin: 30px 0px 30px 0;">Edit Bean</h1>
-        </div>
+        <h3 class="text-center py-5">Bean's Edit</h3>
       </div>
       <%= form_with model: @bean, url: bean_path do |f| %>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <%= attachment_image_tag(@bean, :image, fallback: "no-image.jpg", :size => "200x200") %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <div class="item_image_btn">
+              <%= f.attachment_field :image, id: "file" %>
+            </div>
+            <div id="img_field" onClick="$('#file').click()" >
+              <div class="button text-center" tabindex="0" role="button">写真を変更 </div>
+            </div>
+          </div>
+        </div><br />
         <div class="row">
           <div class="col-4 text-center">
             <%= f.label :名前 %>
@@ -24,17 +39,6 @@
           </div>
           <div class="col-6">
             <%= f.text_field :price, class: "form-control" %>
-          </div>
-        </div><br />
-        <div class="row">
-          <div class="col-4 text-center">
-            <%= f.label :画像 %>
-          </div>
-          <div class="col-2">
-            <%= attachment_image_tag(@bean, :image, class: "rounded-circle", fallback: "no-image.jpg", :size => "70x70") %>
-          </div>
-          <div class="col-4">
-            <%= f.attachment_field :image %>
           </div>
         </div><br />
         <div class="row" id="star">
@@ -68,5 +72,9 @@
     </div>
   </div>
 </div>
-
+<div class="container">
+  <div class="row mb-3 justify-content-center">
+    ©︎2020-2021 Takafumeeee!!!.
+  </div>
+</div>
 

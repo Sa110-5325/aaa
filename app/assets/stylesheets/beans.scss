@@ -9,3 +9,21 @@
 .fadeIn_bean.is-show {
   opacity: 1;
 }
+
+//デフォルトを削除
+.item_image_btn{
+    display: none;
+}
+//idとjqueryを追記
+#img_field {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 20px;
+  color: white;
+  opacity: 0.5;
+}
+
+#img_field:hover {
+  color: white;
+  opacity: 1;
+}

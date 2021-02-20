@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
+    # @user.baens = User.all.page(params[:page]).per(6).order(" created_at DESC")
   end
 
   def show
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def check_guest
+    reset_session
     email = current_user.email || params[:user][:email].downcase
     if email == 'guest@example.com'
       redirect_to user_path(current_user)
