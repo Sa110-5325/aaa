@@ -7,7 +7,7 @@ class Bean < ApplicationRecord
   validates :name, presence: true
   validates :rate, presence: true
   validates :price, presence: true
-  validates :info, presence: true
+  validates :info, presence: true, length: { maximum: 100 }
   validates :image, presence: true
   validates :refresh, inclusion: { in: [1,2,3,4,5] }
   validates :bitter, inclusion: { in: [1,2,3,4,5] }

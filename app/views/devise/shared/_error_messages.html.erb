@@ -1,15 +1,12 @@
-<% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= I18n.t("errors.messages.not_saved",
-                 count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
-       %>
-    </h2>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 error-form text-center" style="font-size: 20px; border-radius: 15px;">
+      <% if @user.errors.any? %>
+        <%= @user.errors.count %>件のエラーが確認されました。<br />
+        <% @user.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
       <% end %>
-    </ul>
+    </div>
   </div>
-<% end %>
+</div>

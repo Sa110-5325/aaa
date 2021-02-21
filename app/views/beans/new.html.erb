@@ -1,4 +1,16 @@
 <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 error-form text-center" style="font-size: 20px; border-radius: 15px;">
+      <% if @bean.errors.any? %>
+        <%= @bean.errors.count %>件のエラーが確認されました。<br />
+        <% @bean.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
   <div class="row">
     <div class="col-3">
       <%= render "layouts/sidebar" %>
@@ -25,12 +37,17 @@
               <%= f.text_field :price,class: "form-control-sm", :size => "20x5" %> 円
             </div>
           </div><br />
-          <div class="row justify-content-center">
+          <div class="row" style="padding-left: 80px;">
             <div class="col-2 text-right">
-              <%= f.label :画像 %>
+              <%= f.label :写真 %>
             </div>
-            <div class="col-8">
-              <%= f.attachment_field :image %>
+            <div class="col-3">
+              <div class="item_image_btn">
+                <%= f.attachment_field :image, id: "file" %>
+              </div>
+              <div id="img_field" onClick="$('#file').click()" >
+                <div class="button text-center" tabindex="0" role="button">写真を選択 </div>
+              </div>
             </div>
           </div><br />
           <div class="row" id="star" style="padding-left: 80px;">
@@ -71,7 +88,12 @@
               <%= f.label :感想 %>
             </div>
             <div class="col-8">
-              <%= f.text_area :info, :size => "35x5" %>
+              <div class="row">
+                （100文字以内）
+              </div>
+              <div class="row">
+                <%= f.text_area :info, :size => "35x5" %>
+              </div>
             </div>
           </div>
           <div class="row pt-3">
@@ -85,7 +107,7 @@
   </div>
 </div>
 <div class="container">
-  <div class="row justify-content-center" style="padding-top: 50px;">
+  <div class="row justify-content-center pt-5 pb-3">
     ©︎2020-2021 Takafumeeee!!!.
   </div>
 </div>

@@ -3,13 +3,28 @@
     <div class="col-3">
       <%= render "layouts/sidebar" %>
     </div>
-    <div class="col-7">
+    <div class="col-7 mt-5">
       <div class="row justify-content-center">
-        <div class="col-4 text-right">
-          <h1 style="font-family: 'Kaushan Script', cursive; font-size: 40px; margin: 30px 0px 30px 0;">Edit User</h1>
-        </div>
+        <h3 class="text-center mb-5">Edit User</h3>
       </div>
-      <%= form_with model: @user, url: user_path(current_user.id) do |f| %>
+      <%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <%= attachment_image_tag(@user, :profile_image, fallback: "no-image.jpg", :size => "200x200") %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-5">
+            <div class="item_image_btn">
+              <%= f.attachment_field :profile_image, id: "file" %>
+            </div>
+            <div id="img_field" onClick="$('#file').click()" >
+              <div class="button text-center" tabindex="0" role="button">プロフィール写真を変更 </div>
+            </div>
+          </div>
+        </div><br />
         <div class="row">
           <div class="col-4 text-center">
             <%= f.label :Name %>
@@ -24,14 +39,6 @@
           </div>
           <div class="col-6">
             <%= f.text_field :email, class: "form-control" %>
-          </div>
-        </div><br />
-        <div class="row">
-          <div class="col-4 text-center">
-            <%= f.label :image %>
-          </div>
-          <div class="col-6">
-            <%= f.attachment_field :profile_image %>
           </div>
         </div><br />
         <div class="row justify-content-end">

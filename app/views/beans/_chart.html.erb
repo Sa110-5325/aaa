@@ -11,7 +11,7 @@
                   label: "バランス",
                   fontColor: "white",
                   data: [bean.refresh, bean.bitter, bean.body, bean.fruity, bean.acidity],
-                  backgroundColor: 'RGBA(115, 78, 48, 0.5)',
+                  backgroundColor: 'RGBA(255, 255, 102, 0.8)',
                   borderColor: 'RGBA(255, 255, 255, 1)',
                   borderWidth: 0.5
               }]
@@ -34,9 +34,16 @@
                     color: 'RGBA(255, 255, 255, 1)'
                   },
                   ticks:{
+                    beginAtZero: true,
                     suggestedMin: 0,
                     suggestedMax: 5,
                     stepSize: 1,
+                      callback: function(value, index, values) {
+                        if (index % 1 === 0) {
+                            return "";
+                        }
+                        return value;
+                    }
                   }
                 }
             }

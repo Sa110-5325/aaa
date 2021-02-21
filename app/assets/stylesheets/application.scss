@@ -53,3 +53,9 @@ body {
 .pagination>li>a:hover {
   color: black;
 }
+
+.error-form {
+  background-image: image-url("error.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}

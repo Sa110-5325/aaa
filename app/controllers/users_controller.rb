@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
-      render "show"
+      render "edit"
     end
   end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def check_guest
-    reset_session
+    # 現在ログインしているユーザーのメールアドレスがそんざいする。もしくは、ぱらむsのUserのEmailが存在するか?
     email = current_user.email || params[:user][:email].downcase
     if email == 'guest@example.com'
       redirect_to user_path(current_user)

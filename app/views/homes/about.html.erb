@@ -57,17 +57,27 @@
       <h5>好きなものをシェアすることで繋がっていた趣味仲間。</h5>
       <h5>現在、会える機会が減ってしまったことで大切な時間が無くなってしまうのはあまりに切ないですよね。</h5>
       <h5>キッカケを作るため、美味しいと思ったコーヒーを共有しましょう！</h5><br />
-      <h5>会員登録をしなくても  <%= link_to 'Guest', users_guest_sign_in_path, class: "btn-lg btn-light", style: "border-radius: 20px;", method: :post %>  としてログインができますので、是非ご利用下さい。</h5>
+      <% if user_signed_in? %>
+      <% else %>
+        <h5>会員登録をしなくても  <%= link_to 'Guest', users_guest_sign_in_path, class: "btn-lg btn-light", style: "border-radius: 20px;", method: :post %>  としてログインができますので、是非ご利用下さい。</h5>
+      <% end %>
     </section>
   </div>
 </div>
+
 <div class="row justify-content-center my-5">
-  <div class="col-1">
-    <%= link_to "SignUp", new_user_registration_path, class: "btn btn-outline-light", style: "border-radius: 20px;" %>
-  </div>
-  <div class="col-1">
-    <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-light", style: "border-radius: 20px;" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="col-1" style="margin-left: 30px;">
+      <%= link_to "Post", new_bean_path, class: "btn btn-outline-light", style: "border-radius: 20px; font-size: 20px;" %>
+    </div>
+    <% else %>
+    <div class="col-1">
+      <%= link_to "SignUp", new_user_registration_path, class: "btn btn-outline-light", style: "border-radius: 20px;" %>
+    </div>
+    <div class="col-1">
+      <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-light", style: "border-radius: 20px;" %>
+    </div>
+  <% end %>
 </div>
 <div class="row justify-content-center pt-5 mb-3">
   ©︎2020-2021 Takafumeeee!!!.
