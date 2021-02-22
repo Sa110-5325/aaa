@@ -62,16 +62,20 @@
             <%= f.label :感想 %>
           </div>
           <div class="col-6">
-            <%= f.text_area :info, class: "form-control", :size => "20x5" %>
-          </div>
-        </div><br />
+            <div class="row">
+              （100文字以内）
+            </div>
+            <div class="row"> 
+              <%= f.text_area :info, class: "form-control", :size => "20x5" %>
+            </div>
+          </div><br />
+        </div>
         <div class="row justify-content-end">
           <%= f.submit "Update", class: "btn btn-outline-light" %>
         </div>
       <% end %>
     </div>
   </div>
-</div>
 <div class="container">
   <div class="row mb-3 justify-content-center">
     ©︎2020-2021 Takafumeeee!!!.
