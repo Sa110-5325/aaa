@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-sm-3">
       <%= render "layouts/sidebar" %>
     </div>
-    <div class="col-7 my-5">
+    <div class="col-sm-7 my-5">
       <h3 class="text-center"><%= @user.name %>'s Favorite Beans</h3>
       <% @user.favorites.each do |favorite| %>
         <div class="row my-5">
-          <div class="col-6">
+          <div class="col-sm-6">
             <section class="inview_re fadeIn_favorite_1">
               <%= link_to attachment_image_tag(favorite.bean, :image, :fill, 300, 300, class: "rounded-circle"), bean_path(favorite.bean)  %>
             </section>
           </div>
-          <div class="col-6" style="padding-top: 60px;">
+          <div class="col-sm-6" style="padding-top: 60px;">
             <section class="inview_re fadeIn_favorite_2">
               <div class="row">
                 <strong class="h4"><%= favorite.bean.name %></strong>

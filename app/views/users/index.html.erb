@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-sm-3">
       <%= render "layouts/sidebar" %>
     </div>
-    <div class="col-7 my-5">
+    <div class="col-sm-7 my-5">
       <h3 class="text-center"><%= @user.name %>'s Posts</h3>
       <% @user.beans.reverse.each do |bean| %>
         <div class="row my-5">
-          <div class="col-6">
+          <div class="col-sm-6">
             <section class="inview_re fadeIn_post_1">
               <%= link_to attachment_image_tag(bean, :image, :fill, 300, 300, class: "rounded-circle"), bean_path(bean) %>
             </section>
           </div>
-          <div class="col-6" style="padding-top: 60px;">
+          <div class="col-sm-6" style="padding-top: 60px;">
             <section class="inview_re fadeIn_post_2">
               <div class="row">
                 <strong class="h4"><%= bean.name %></strong>
