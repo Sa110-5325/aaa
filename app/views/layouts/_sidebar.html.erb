@@ -1,31 +1,33 @@
 <div class="container sidebar_fixed">
-  <div class="col">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <buttons class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-      </buttons>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav flex-column">
-          <% if user_signed_in? %>
-            <h5>こんにちは、<br /><%= current_user.name %>さん</h5><br />
-            <button style="font-size: 20px;"><%= link_to 'Top', root_path,class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'About', about_path,class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'Post', new_bean_path,class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'Beans', beans_path,class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'My Page', user_path(current_user.id),class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'Log Out', destroy_user_session_path,class: "text-light", style: "text-decoration: none;", method: :delete%></button><br />
-          <% else %>
-            <li></li><br />
-            <button style="font-size: 20px;"><%= link_to 'Top', root_path,class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'About', about_path,class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'Sign Up', new_user_registration_path,class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'Log In', new_user_session_path,class: "text-light", style: "text-decoration: none;"%></button><br />
-            <button style="font-size: 20px;"><%= link_to 'Guest', users_guest_sign_in_path,class: "text-light", style: "text-decoration: none;", method: :post %></button>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+  <div class="row">
+    <div class="col">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <buttons class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </buttons>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav flex-column">
+            <% if user_signed_in? %>
+              <h5>こんにちは、<br /><%= current_user.name %>さん</h5><br />
+              <button style="font-size: 20px;"><%= link_to 'Top', root_path,class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'About', about_path,class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'Post', new_bean_path,class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'Beans', beans_path,class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'My Page', user_path(current_user.id),class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'Log Out', destroy_user_session_path,class: "text-light", style: "text-decoration: none;", method: :delete%></button><br />
+            <% else %>
+              <li></li><br />
+              <button style="font-size: 20px;"><%= link_to 'Top', root_path,class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'About', about_path,class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'Sign Up', new_user_registration_path,class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'Log In', new_user_session_path,class: "text-light", style: "text-decoration: none;"%></button><br />
+              <button style="font-size: 20px;"><%= link_to 'Guest', users_guest_sign_in_path,class: "text-light", style: "text-decoration: none;", method: :post %></button>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </div>
 </div>
