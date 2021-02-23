@@ -5,10 +5,10 @@
     </div>
     <div class="col-sm-9">
       <h3 class="text-center py-5">Beans</h3>
-      <div class="row">
+      <div class="row justify-content-center">
         <% @beans.each do |bean| %>
           <section class="inview_re fadeIn_bean">
-            <div style="margin: 0 30px 100px 0;">
+            <div class="col-sm mb-5">
               <%= link_to attachment_image_tag(bean, :image, class: "rounded-circle", fallback: "no-image.jpg", :size => "250x250"), bean_path(bean) %>
               <div class="card-title">
                 <%= bean.name %>

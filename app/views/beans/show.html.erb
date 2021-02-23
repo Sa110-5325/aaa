@@ -5,42 +5,36 @@
     </div>
   </div>
   <label style="font-size: 10px; margin-left: 150px;"><<写真をクリックしてバランスを表示>></label>
-</div>
-<div class="container">
-  <div class="mb-3">
-    <div class="row no-gutters">
-      <div class="col-sm-5">
-        <%= render "beans/image", bean: @bean %>
-          <% if @bean.user.id == current_user.id %>
-            <%= link_to "編集︎", edit_bean_path(@bean), class: "btn-sm btn-dark" %>
-            <a style="padding-left: 20px;"><%= link_to "削除︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn-sm btn-dark destroy_bean_#{@bean.id}" %></a>
-          <% end %>
-      </div>
-      <div class="col-sm-6">
-        <div class="card-body">
-          <h4 class="card-title"><%= @bean.name %></h4>
-          <h4>¥<%= @bean.price %></h4>
-          <p><%= simple_format@bean.info %></p>
-          <div style="margin-top: 100px;" id="star-rate-<%= @bean.id %>"></div>
-          <%= render "beans/rate", bean: @bean %><br />
-          <%= form_with model:[@bean, @comment] do |f| %>
-            <%= f.text_area :comment, :size => "40x2", placeholder: "コメントしてね(20文字以内)" %>
-            <div class="row pt-2">
-              <div class="col-sm-6">
-                <%= f.submit "コメントする",class: "btn btn-outline-light", style: "border-radius: 20px;" %>
-              </div>
-              <div class="col-sm-6">
-                <div id="bean_<%= @bean.id %>"><%= render "beans/favorite_button", bean: @bean %></div>
-              </div>
+  <div class="row mb-3">
+    <div class="col-md-5">
+      <%= render "beans/image", bean: @bean %>
+        <% if @bean.user.id == current_user.id %>
+          <%= link_to "編集︎", edit_bean_path(@bean), class: "btn-sm btn-dark" %>
+          <a style="padding-left: 20px;"><%= link_to "削除︎", @bean, method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn-sm btn-dark destroy_bean_#{@bean.id}" %></a>
+        <% end %>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h4 class="card-title"><%= @bean.name %></h4>
+        <h4>¥<%= @bean.price %></h4>
+        <p><%= simple_format@bean.info %></p>
+        <div style="margin-top: 100px;" id="star-rate-<%= @bean.id %>"></div>
+        <%= render "beans/rate", bean: @bean %><br />
+        <%= form_with model:[@bean, @comment] do |f| %>
+          <%= f.text_area :comment, :size => "40x2", placeholder: "コメントしてね(20文字以内)" %>
+          <div class="row pt-2">
+            <div class="col-md-6">
+              <%= f.submit "コメントする",class: "btn btn-outline-light", style: "border-radius: 20px;" %>
             </div>
-          <% end %>
-          <div class="comments text-right"><%= render "beans/comment", bean: @bean, comment: @comment %></div>
-        </div>
+            <div class="col-md-6">
+              <div id="bean_<%= @bean.id %>"><%= render "beans/favorite_button", bean: @bean %></div>
+            </div>
+          </div>
+        <% end %>
+        <div class="comments text-right"><%= render "beans/comment", bean: @bean, comment: @comment %></div>
       </div>
     </div>
   </div>
-</div>
-<div class="container">
   <div class="row justify-content-center" style="padding: 80px 0 30px 0">
     ©︎2020-2021 Takafumeeee!!!.
   </div>
