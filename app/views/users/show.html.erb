@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-7">
       <div class="row justify-content-center">
-        <div class="col pt-5 text-center">
+        <div class="col-sm pt-5 text-center">
           <h3><%= @user.name %>'s Page</h3>
         </div>
       </div>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-4 text-left">
+        <div class="col-8-sm text-left">
         <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
         <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-warning" %><br />
         <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-light" %><br />
