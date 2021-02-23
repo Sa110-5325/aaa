@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @rankings = Bean.find(Favorite.group(:bean_id).order('count(bean_id) DESC').limit(3).pluck(:bean_id))
+    @rankings = Bean.find(Favorite.group(:bean_id).order('count(bean_id) DESC').limit(6).pluck(:bean_id))
   end
 
   def edit

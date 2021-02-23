@@ -19,37 +19,28 @@
         <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
         <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-warning" %><br />
         <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-light" %><br />
-        <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-warning" %>
+        <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-warning" %><br />
+        <a class="rank text-light ml-2 collapsed" style="font-size:14px;" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Beans ranking</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <a class="btn btn-outline-light collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">人気急上昇中の上位1〜3位いいいeeee</a>
   </div><br />
   <div class="collapse" id="collapseExample" style="">
     <div class="row justify-content-center">
       <% @rankings.each.with_index(1) do |bean, i| %>
-        <div class="col-sm-4">
-          <div class="card text-dark">
-            <div class="card-image text-center bg-light">
-              第 <%= i %> 位 （いいね <%= bean.favorites.count %>）
-              <%= link_to attachment_image_tag(bean, :image, style: "width: 100%; height: 300px;", fallback: "no-image.jpg"), bean_path(bean) %>
-              <div class="card-body">
-                <div class="card-title">
-                  <%= bean.name %>
-                  <div class="card-text">
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="col-sm-4 text-center">
+          <p style="font-size: 20px;"><%= i %> 位</p>
+          <%= link_to attachment_image_tag(bean, :image, style: "width: 100%; height: 300px;", fallback: "no-image.jpg"), bean_path(bean) %>
+          <div class="py-2 mb-5 bg-light text-dark" style="font-size: 25px;">
+            <%= bean.name %><br />
+            <li class="fas fa-thumbs-up"></li> × <%= bean.favorites.count %><br />
+            <p style="font-size: 15px;"><%= link_to bean.user.name, user_path(bean.user), class: "btn-sm btn-outline-dark",style: "text-decoration: underline;" %>さんの紹介</p>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-  <div class="row justify-content-center" style="padding-top: 130px;">
+  <div class="row justify-content-center" style="padding: 130px 0 20px 0;">
     ©︎2020-2021 Takafumeeee!!!.
   </div>
 </div>

@@ -14,25 +14,23 @@
       <% end %>
     </div>
     <div class="col-sm-5">
-      <!--<div class="card-body">-->
-        <h4><%= @bean.name %></h4>
-        <h4>¥<%= @bean.price %></h4>
-        <p><%= simple_format@bean.info %></p>
-        <div style="margin-top: 100px;" id="star-rate-<%= @bean.id %>"></div>
-        <%= render "beans/rate", bean: @bean %><br />
-        <%= form_with model:[@bean, @comment] do |f| %>
-          <%= f.text_area :comment, :size => "25x2", placeholder: "コメントしてね(20文字以内)" %>
-          <div class="row pt-2">
-            <div class="col-sm-6">
-              <%= f.submit "コメントする",class: "btn btn-outline-light", style: "border-radius: 20px;" %>
-            </div>
-            <div class="col-sm-6">
-              <div id="bean_<%= @bean.id %>"><%= render "beans/favorite_button", bean: @bean %></div>
-            </div>
+      <h4><%= @bean.name %></h4>
+      <h4>¥<%= @bean.price %></h4>
+      <p><%= simple_format@bean.info %></p>
+      <div style="margin-top: 100px;" id="star-rate-<%= @bean.id %>"></div>
+      <%= render "beans/rate", bean: @bean %><br />
+      <%= form_with model:[@bean, @comment] do |f| %>
+        <%= f.text_area :comment, :size => "25x2", placeholder: "コメントしてね(20文字以内)" %>
+        <div class="row pt-2">
+          <div class="col-sm-6">
+            <%= f.submit "コメントする",class: "btn btn-outline-light", style: "border-radius: 20px;" %>
           </div>
-        <% end %>
-        <div class="comments text-right"><%= render "beans/comment", bean: @bean, comment: @comment %></div>
-      <!--</div>-->
+          <div class="col-sm-6">
+            <div id="bean_<%= @bean.id %>"><%= render "beans/favorite_button", bean: @bean %></div>
+          </div>
+        </div>
+      <% end %>
+      <div class="comments text-right"><%= render "beans/comment", bean: @bean, comment: @comment %></div>
     </div>
   </div>
   <div class="row justify-content-center mt-5 mb-3">
