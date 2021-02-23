@@ -1,6 +1,6 @@
 class Bean < ApplicationRecord
   belongs_to :user
-  attachment :image
+  attachment :image, content_type: ["image/jpeg", "image/png", "image/gif"]
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
@@ -14,6 +14,7 @@ class Bean < ApplicationRecord
   validates :body, inclusion: { in: [1,2,3,4,5] }
   validates :fruity, inclusion: { in: [1,2,3,4,5] }
   validates :acidity, inclusion: { in: [1,2,3,4,5] }
+
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
