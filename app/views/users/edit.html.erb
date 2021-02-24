@@ -9,14 +9,14 @@
       </div>
       <%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
         <div class="row">
-          <div class="col-4"></div>
-          <div class="col-4">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4 text-center">
             <%= attachment_image_tag(@user, :profile_image, fallback: "no-image.jpg", :size => "200x200") %>
           </div>
         </div>
         <div class="row">
-          <div class="col-4"></div>
-          <div class="col-5">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-5">
             <div class="item_image_btn">
               <%= f.attachment_field :profile_image, id: "file" %>
             </div>
@@ -26,22 +26,22 @@
           </div>
         </div><br />
         <div class="row">
-          <div class="col-4 text-center">
+          <div class="col-sm-4 text-center">
             <%= f.label :Name %>
           </div>
-          <div class="col-6">
+          <div class="col-sm-6">
             <%= f.text_field :name, class: "form-control" %>
           </div>
         </div><br />
         <div class="row">
-          <div class="col-4 text-center">
+          <div class="col-sm-4 text-center">
             <%= f.label :Email %>
           </div>
-          <div class="col-6">
+          <div class="col-sm-6">
             <%= f.text_field :email, class: "form-control" %>
           </div>
         </div><br />
-        <div class="row justify-content-end">
+        <div class="row justify-content-end mr-1">
           <%= f.submit "変更する", class: "btn btn-outline-light" %>
         </div>
       <% end %>

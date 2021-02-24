@@ -31,9 +31,9 @@
         <div class="col-sm-4 text-center">
           <p style="font-size: 20px;"><%= i %> 位</p>
           <%= link_to attachment_image_tag(bean, :image, style: "width: 100%; height: 300px;", fallback: "no-image.jpg"), bean_path(bean) %>
-          <div class="py-2 mb-5 bg-light text-dark" style="font-size: 25px;">
+          <div class="py-2 mb-5 bg-light text-dark" style="font-size: 20px;">
             <%= bean.name %><br />
-            <li class="fas fa-thumbs-up"></li> × <%= bean.favorites.count %><br />
+            もらったいいね数：<%= bean.favorites.count %><br />
             <p style="font-size: 15px;"><%= link_to bean.user.name, user_path(bean.user), class: "btn-sm btn-outline-dark",style: "text-decoration: underline;" %>さんの紹介</p>
           </div>
         </div>

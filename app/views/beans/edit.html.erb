@@ -10,7 +10,7 @@
       <%= form_with model: @bean, url: bean_path do |f| %>
         <div class="row">
           <div class="col-sm-4"></div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 text-center">
             <%= attachment_image_tag(@bean, :image, fallback: "no-image.jpg", :size => "200x200") %>
           </div>
         </div>
@@ -41,10 +41,13 @@
             <%= f.text_field :price, class: "form-control" %>
           </div>
         </div><br />
-        <div class="row" id="star">
+        <div class="row">
           <div class="col-sm-4 text-center">
             <%= f.label :評価 %>
+          </div>
+          <div class="col-sm-4 text-center" id="star">
             <%= f.hidden_field :rate, id: :review_star %>
+          </div>
             <script>
               $('#star').raty({
                 size     : 36,
@@ -55,7 +58,6 @@
                 half: true,
               });
             </script>
-          </div>
         </div><br />
         <div class="row">
           <div class="col-sm-4 text-center">
@@ -65,17 +67,17 @@
             <div class="row">
               （100文字以内）
             </div>
-            <div class="row"> 
+            <div class="row px-2"> 
               <%= f.text_area :info, class: "form-control", :size => "20x5" %>
             </div>
-          </div><br />
-        </div>
-        <div class="row justify-content-end">
+          </div>
+        </div><br />
+        <div class="row justify-content-end mr-1">
           <%= f.submit "Update", class: "btn btn-outline-light" %>
         </div>
       <% end %>
     </div>
-  </div>
+  </div><br />
 <div class="container">
   <div class="row mb-3 justify-content-center">
     ©︎2020-2021 Takafumeeee!!!.
