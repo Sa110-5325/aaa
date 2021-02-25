@@ -9,12 +9,12 @@
         <% @beans.each do |bean| %>
           <section class="inview_re fadeIn_bean">
             <div class="col-sm mb-5">
-              <%= link_to attachment_image_tag(bean, :image, class: "rounded-circle", fallback: "no-image.jpg", :size => "250x250"), bean_path(bean) %>
+              <%= link_to attachment_image_tag(bean, :image, class: "prev-bean rounded-circle", fallback: "no-image.jpg", :size => "250x250"), bean_path(bean) %>
               <div class="card-title">
                 <%= bean.name %>
               </div>
               <div class="card-price">
-                <%= bean.price %>円
+                <%= bean.price.to_s(:delimited) %>円
                 <div id="star-rate-<%= bean.id %>"></div>
                 <script>
                   $('#star-rate-<%= bean.id %>').raty({

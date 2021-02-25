@@ -9,20 +9,12 @@
       </div>
       <%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
         <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4 text-center">
-            <%= attachment_image_tag(@user, :profile_image, fallback: "no-image.jpg", :size => "200x200") %>
+          <div class="col-sm-4 my-auto text-center">
+            <%= f.label :Image %>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-5">
-            <div class="item_image_btn">
-              <%= f.attachment_field :profile_image, id: "file" %>
-            </div>
-            <div id="img_field" onClick="$('#file').click()" >
-              <div class="button text-center" tabindex="0" role="button">プロフィール写真を変更 </div>
-            </div>
+          <div class="col-sm-4 text-center">
+            <%= f.file_field :profile_image, class: "img_field", style: "display: none;" %>
+            <%= attachment_image_tag(@user, :profile_image, class: "prev", fallback: "no-image.jpg", onClick: "$('.img_field').click()", :size => "200x200") %>
           </div>
         </div><br />
         <div class="row">
@@ -46,5 +38,8 @@
         </div>
       <% end %>
     </div>
+  </div>
+  <div class="row justify-content-center" style="margin: 130px 0 30px 0;">
+    ©︎2020-2021 Takafumeeee!!!.
   </div>
 </div>

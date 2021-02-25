@@ -15,7 +15,7 @@
     </div>
     <div class="col-sm-5">
       <h4><%= @bean.name %></h4>
-      <h4>¥<%= @bean.price %></h4>
+      <h4>¥<%= @bean.price.to_s(:delimited) %></h4>
       <p><%= simple_format@bean.info %></p>
       <div style="margin-top: 100px;" id="star-rate-<%= @bean.id %>"></div>
       <%= render "beans/rate", bean: @bean %><br />

@@ -32,3 +32,11 @@
   background-color: red;
   opacity: 0.5;
 }
+
+.prev-bean:hover {
+  opacity: 0.6;
+  transition: 1.0s;
+  transform: rotateX( 40deg ) ;
+}
+
+
