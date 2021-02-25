@@ -37,9 +37,7 @@
           <div class="col-sm-4 text-center">
             <%= f.label :評価 %>
           </div>
-          <div class="col-sm-4 text-center" id="star">
-            <%= f.hidden_field :rate, id: :review_star %>
-          </div>
+          <div class="col-sm-4 text-center" id="star"></div>
             <script>
               $('#star').raty({
                 size     : 36,
@@ -48,6 +46,7 @@
                 starHalf: '<%= asset_path('star-half.png') %>',
                 scoreName: 'bean[rate]',
                 half: true,
+                score: <%= @bean.rate %>,
               });
             </script>
         </div><br />
