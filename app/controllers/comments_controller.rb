@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.bean_id = @bean.id
     @comment.save
-    redirect_to bean_path(@bean)
   end
 
   def destroy

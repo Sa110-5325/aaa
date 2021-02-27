@@ -3,10 +3,7 @@
     <div class="col-sm-3">
       <%= render "layouts/sidebar" %>
     </div>
-    <div class="col-sm-7">
-      <div class="row justify-content-center">
-        <h3 class="text-center py-5">Bean's Edit</h3>
-      </div>
+    <div class="col-sm-7 mt-5">
       <%= form_with model: @bean, url: bean_path do |f| %>
         <div class="row">
           <div class="col-sm-4 my-auto text-center">
@@ -27,7 +24,7 @@
         </div><br />
         <div class="row">
           <div class="col-sm-4 text-center">
-            <%= f.label :金額 %>
+            <%= f.label :値段 %>
           </div>
           <div class="col-sm-6">
             <%= f.text_field :price, class: "form-control" %>
@@ -64,7 +61,7 @@
           </div>
         </div><br />
         <div class="row justify-content-end mr-1">
-          <%= f.submit "Update", class: "btn btn-outline-light" %>
+          <%= f.submit "更新", class: "btn btn-outline-light" %>
         </div>
       <% end %>
     </div>

@@ -18,17 +18,29 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
+
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
       render "edit"
     end
   end
+  
+  def following
+    @user = User.find(params[:id])
+    @followings = @user.followings
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers
+  end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile_image)
+    params.require(:user).permit(:name, :description, :email, :profile_image)
   end
 
   def ensure_current_user

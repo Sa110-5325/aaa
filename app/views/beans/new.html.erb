@@ -16,42 +16,38 @@
       <%= render "layouts/sidebar" %>
     </div>
     <div class="col-sm-9">
-      <div class="row">
-        <div class="col-sm-10 text-center">
-          <h3 class="py-5">Post</h3>
-        </div>
-      </div>
+      <h3 class="text-center py-5">Post</h3>
       <%= form_with model: @bean, url: beans_path, local: true do |f| %>
         <div class="row">
-          <div class="col-sm-2 my-auto text-center">
+          <div class="col-sm-4 my-auto text-center">
             <%= f.label :写真 %>
           </div>
-          <div class="col-sm-6 text-center">
+          <div class="col-sm-4 text-center">
             <%= f.file_field :image, class: "img_field", style: "display: none;" %>
             <%= attachment_image_tag(@bean, :image, class: "prev", fallback: "no-image.jpg", onClick: "$('.img_field').click()", :size => "200x200") %>
           </div>
         </div><br />
         <div class="row">
-          <div class="col-sm-2 text-center">
+          <div class="col-sm-4 text-center">
             <%= f.label :名前 %>
           </div>
-          <div class="col-sm-6 text-center">
-            <%= f.text_field :name,class: "form-control-sm", :size => "20x5" %>
+          <div class="col-sm-6">
+            <%= f.text_field :name,class: "form-control" %>
           </div>
         </div><br />
         <div class="row">
-          <div class="col-sm-2 text-center">
+          <div class="col-sm-4 text-center">
             <%= f.label :値段 %>
           </div>
-          <div class="col-sm-6 ml-2 text-center">
-            <%= f.text_field :price,class: "form-control-sm", :size => "20x5" %> 円
+          <div class="col-sm-6">
+            <%= f.text_field :price,class: "form-control", placeholder: "半角数字のみ　例…「1000」" %>
           </div>
         </div><br />
         <div class="row">
-          <div class="col-sm-2 text-center">
+          <div class="col-sm-4 text-center">
             <%= f.label :評価 %>
           </div>
-          <div class="col-sm-6 text-center" id="star" data-turbolinks="false">
+          <div class="col-sm-4 text-center" id="star" data-turbolinks="false">
             <%= f.hidden_field :rate, id: :review_star %>
           </div>
             <script>
@@ -64,33 +60,30 @@
                 half: true,
               });
             </script>
-
         </div><br />
         <div class="row">
-          <div class="col-sm-2 text-center">
+          <div class="col-sm-4 text-center">
             <%= f.label :味 %>
           </div>
-          <div class="col-sm-6 text-center" style="margin: 0; padding: 0;">
+          <div class="col-sm-6 text-center" style="font-size: 13px;">
             <%= f.label :重さ %>
-            <%= f.select :refresh, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+            <%= f.number_field :refresh, min: 1, max: 5, value: 1 %>
             <%= f.label :苦味 %>
-            <%= f.select :bitter, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+            <%= f.number_field :bitter, min: 1, max: 5, value: 1 %>
             <%= f.label :風味 %>
-            <%= f.select :body, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+            <%= f.number_field :body, min: 1, max: 5, value: 1 %>
             <%= f.label :甘み %>
-            <%= f.select :fruity, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+            <%= f.number_field :fruity, min: 1, max: 5, value: 1 %>
             <%= f.label :酸味 %>
-            <%= f.select :acidity, [["0","0"],["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]] %>
+            <%= f.number_field :acidity, min: 1, max: 5, value: 1 %>
           </div>
         </div><br />
         <div class="row">
-          <div class="col-sm-2 my-auto text-center">
+          <div class="col-sm-4 my-auto text-center">
             <%= f.label :感想 %>
           </div>
-          <div class="col-sm-6 text-center">
-            <div class="row justify-content-center px-1">
-              <%= f.text_area :info, :size => "35x5", placeholder: "100文字以内" %>
-            </div>
+          <div class="col-sm-6">
+            <%= f.text_area :info, class: "form-control", :size => "20x5", placeholder: "100文字以内" %>
           </div>
         </div>
         <div class="row pt-3">

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= render "layouts/sidebar" %>
+    </div>
+    <div class="col-sm-8 mt-5">
+      <div class="row justify-content-center">
+        <%= @user.name %>さんをフォロー中の人
+      </div>
+      <% @user.followings.each do |user| %>
+        <div class="row justify-content-center mt-5">
+          <div class="col-3 text-right">
+            <%= link_to attachment_image_tag(user, :profile_image, fallback: "no-image.jpg", size: "70x70"),user_path(user) %>
+          </div>
+          <div class="col-5 my-auto">
+            <%= user.name %>
+          </div>
+          <div class="col-3 my-auto">
+            <%= render "relationships/follow", user: user %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

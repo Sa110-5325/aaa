@@ -11,7 +11,7 @@
         <%= render "beans/image", bean: @bean %>
       </div>
       <div class="row justify-content-center">
-        <p style="font-size: 10px;"><<写真をクリックしてバランスを表示>></p>
+        <p style="font-size: 10px;"><<写真をクリックしてレーダーチャートを表示>></p>
       </div>
       <div class="row justify-content-end">
         <% if @bean.user.id == current_user.id %>
@@ -40,8 +40,8 @@
             コメント
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="collapse" id="collapse" style="">
+        <div class="row justify-content-center" style="boder-line: 1px;">
+          <div class="collapse text-center" id="collapse" style="">
             <%= form_with model:[@bean, @comment] do |f| %>
               <%= f.text_area :comment, :size => "25x2", placeholder: "コメントしてね(20文字以内)" %><br />
               <%= f.submit "投稿",class: "btn-sm btn-light"%>

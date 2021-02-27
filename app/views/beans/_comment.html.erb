@@ -1,4 +1,4 @@
-<table>
+<table class="table text-light">
   <% bean.comments.each do |comment| %>
     <tr id="bean_<%= comment.id %>">
       <td><%=link_to attachment_image_tag(comment.user, :profile_image, fallback: "no-image.jpg", size: "30x30"), user_path(comment.user) %></td>

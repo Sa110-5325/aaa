@@ -6,7 +6,7 @@
     <div class="col-sm-7">
       <div class="row justify-content-center">
         <div class="col-sm pt-5 text-center">
-          <h3><%= @user.name %>'s Page</h3>
+          <h3><%= @user.name %></h3>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -14,6 +14,22 @@
           <%= attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", :size => "200x200" %>
         </div>
       </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-8 text-center">
+          <%= simple_format@user.description %>
+        </div>
+      </div><br />
+      <div class="row justify-content-center">
+        <div class="col-sm-3 text-center">
+          <%= render "relationships/follow", user: @user %>
+        </div>
+        <div class="col-sm-3 text-center">
+          フォロー中　<strong><%= link_to "#{@user.followings.count}人", following_user_path, class: "text-light" %></strong>
+        </div>
+        <div class="col-sm-3 text-center">
+          フォロワー　<strong><%= link_to "#{@user.followers.count}人", followers_user_path, class: "text-light"  %></strong>
+        </div>
+      </div><br />
       <div class="row justify-content-center">
         <div class="col-8-sm text-left">
         <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
