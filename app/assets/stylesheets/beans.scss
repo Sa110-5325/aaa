@@ -44,4 +44,8 @@
   transform: rotateX( 360deg ) ;
 }
 
-
+.price input[type="number"]::-webkit-outer-spin-button,
+.price input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
