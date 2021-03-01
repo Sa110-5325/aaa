@@ -15,8 +15,7 @@
     <div class="col-sm-3">
       <%= render "layouts/sidebar" %>
     </div>
-    <div class="col-sm-9">
-      <h3 class="text-center py-5">Post</h3>
+    <div class="col-sm-9 mt-5">
       <%= form_with model: @bean, url: beans_path, local: true do |f| %>
         <div class="row">
           <div class="col-sm-4 my-auto text-center">
