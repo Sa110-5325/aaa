@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:show, :create, :destroy]
 
-  root to: 'homes#top' 
+  root to: 'homes#top'  
   get '/about' => 'homes#about'
 
   resources :users do
