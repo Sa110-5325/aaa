@@ -1,9 +1,15 @@
 class ChatsController < ApplicationController
-  
+
   def index
-    @users = User.all
+    rooms = current_user.rooms
+    @users = []
+    rooms.each do |room|
+      user_room = room.user_rooms.where.not(user_id: current_user)
+      user = user_room[0].user
+      @users.push(user)
+    end
   end
-  
+
   def show
     @user = User.find(params[:id])
     # ログインしてるユーザーのuser_roomにあるroom_idの値の配列をroomsに代入。
