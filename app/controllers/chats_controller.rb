@@ -1,5 +1,9 @@
 class ChatsController < ApplicationController
-
+  
+  def index
+    @users = User.all
+  end
+  
   def show
     @user = User.find(params[:id])
     # ログインしてるユーザーのuser_roomにあるroom_idの値の配列をroomsに代入。
@@ -9,7 +13,7 @@ class ChatsController < ApplicationController
 
     # もしuser_roomが空でないなら
     unless user_rooms.nil?
-    # @roomに上記user_roomのroomを代入
+    # @roomに上記user_roomsのroomを代入
       @room = user_rooms.room
     else
     # それ以外は新しくroomを作り、

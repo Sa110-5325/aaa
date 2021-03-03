@@ -1,12 +1,12 @@
-Rails.application.routes.draw do 
+Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   # get 'chat/:id' => 'chats#show', as: 'chat'
-  resources :chats, only: [:show, :create, :destroy]
+  resources :chats, only: [:index, :show, :create, :destroy]
 
-  root to: 'homes#top'  
+  root to: 'homes#top'
   get '/about' => 'homes#about'
 
   resources :users do

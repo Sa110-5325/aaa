@@ -31,10 +31,15 @@
         </div>
       </div><br />
       <div class="row justify-content-center">
-        <% if current_user != @user %>
-          <%= link_to "チャット", chat_path(@user.id) %>
-        <% end %>
-      </div>
+        <div class="col-sm-3">
+          <%= link_to "message", chats_path, class: "btn-sm btn-outline-light" %>
+        </div>
+        <div class="col-sm-3 text-right">
+          <% if current_user != @user %>
+            <%= link_to "チャット", chat_path(@user.id), class: "btn-sm btn-outline-light" %>
+          <% end %>
+        </div>
+      </div><br />
       <div class="row justify-content-center">
         <div class="col-8-sm text-left">
         <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
