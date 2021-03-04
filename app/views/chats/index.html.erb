@@ -4,6 +4,7 @@
       <%= render "layouts/sidebar" %>
     </div>
     <div class="col-sm-7 mt-5">
+      <h4 class="text-center">チャット中のユーザー一覧</h4>
       <% @users.each do |user| %>
         <div class="row my-4">
           <div class="col-3 text-right">
@@ -13,7 +14,7 @@
             <%= user.name %>
           </div>
           <div class="col-4 text-center my-auto">
-            <%= link_to "メッセージ", user_path(user), class: "btn-sm btn-light" %>
+            <%= link_to "メッセージ", chat_path(user.id), class: "btn-sm btn-light" %>
           </div>
         </div>
       <% end %>
