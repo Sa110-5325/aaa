@@ -1,3 +1,20 @@
 // Place all the styles related to the chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.message:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
+
+.current_user {
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+}
+
+.visited_user {
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+}

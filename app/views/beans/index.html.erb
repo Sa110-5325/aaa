@@ -8,7 +8,7 @@
       <div class="row justify-content-center">
         <% @beans.each do |bean| %>
           <section class="inview_re fadeIn_bean">
-            <div class="col-sm mb-5">
+            <div class="col-sm mb-5 text-center">
               <%= link_to attachment_image_tag(bean, :image, class: "prev-bean rounded-circle", fallback: "no-image.jpg", :size => "250x250"), bean_path(bean) %>
               <div class="card-title">
                 <%= bean.name %>
@@ -28,7 +28,7 @@
                   });
                 </script>
               </div>
-              評価：<%= bean.rate %>点 |
+              評価：<%= bean.rate %> |
               コメント<%= bean.comments.count %>件
               <p>投稿日:  <%= simple_time(bean.created_at) %></p>
               <%= link_to bean.user.name, user_path(bean.user), class: "btn-sm btn-outline-light" %>さんの紹介

@@ -31,22 +31,20 @@
         </div>
       </div><br />
       <div class="row justify-content-center">
-        <div class="col-sm-3">
-          <%= link_to "message", chats_path, class: "btn-sm btn-outline-light" %>
-        </div>
-        <div class="col-sm-3 text-right">
-          <% if current_user != @user %>
-            <%= link_to "チャット", chat_path(@user.id), class: "btn-sm btn-outline-light" %>
-          <% end %>
+        <div class="col-sm-3 text-center">
+          <li class="fab fa-telegram-plane"></li> <%= link_to "Messages", chats_path, class: "text-light" %>
         </div>
       </div><br />
       <div class="row justify-content-center">
         <div class="col-8-sm text-left">
-        <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
-        <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-warning" %><br />
-        <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-light" %><br />
-        <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-warning" %><br />
-        <a class="rank text-light ml-2 collapsed" style="font-size:14px;" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Beans ranking</a>
+          <% if current_user != @user %>
+            <%= link_to "Chat", chat_path(@user.id), class: "btn-sm btn-outline-light" %>
+          <% end %><br />
+          <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
+          <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-warning" %><br />
+          <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-light" %><br />
+          <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-warning" %><br />
+          <a class="rank text-light ml-2 collapsed" style="font-size:14px;" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Beans ranking</a>
         </div>
       </div>
     </div>

@@ -3,28 +3,53 @@
     <div class="col-sm-3">
       <%= render "layouts/sidebar" %>
     </div>
-    <div class="col-sm-7 mt-5">
+    <div class="col-sm-9" style="padding-top: 100px;">
       <% @chats.each do |chat| %>
-        <div class="row justify-content-center">
-          <div class="col-sm-4">
-            <%= chat.user.name %>
+        <% if chat.user_id == current_user.id %>
+          <div class="row py-2">
+            <div class="col-2 text-right my-auto">
+              <%= attachment_image_tag(chat.user, :profile_image, fallback: "no-image.jpg", size: "30x30") %>
+            </div>
+            <div class="current_user col-3 my-auto" style="font-size: 15px;">
+              <%= chat.message %>
+            </div>
+            <div class="col-1 my-auto">
+              <% if chat.user == current_user %>
+                <%= link_to "✖️", chat_path(chat), class: "message text-light btn-sm btn-warning", style: "font-size: 10px;", method: :delete %>
+              <% end %>
+            </div>
           </div>
-          <div class="col-sm-6">
-            <%= chat.message %>
+          <div class="row" style="font-size: 10px">
+            <div class="col-5 text-center">
+              <%= chat.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+            </div>
           </div>
-          <div class="col-sm-2">
-            <%= link_to "削除", chat_path(chat), method: :delete %>
+        <% else %>
+          <div class="row justify-content-end py-2">
+            <div class="visited_user col-3 my-auto" style="font-size: 15px;">
+              <%= chat.message %>
+            </div>
+            <div class="col-1 text-right my-auto">
+              <%= attachment_image_tag(chat.user, :profile_image, fallback: "no-image.jpg", size: "30x30") %>
+            </div>
+            <div class="col-1 my-auto">
+            </div>
           </div>
-        </div>
+          <div class="row" style="font-size: 10px">
+            <div class="col-11 text-right">
+              <%= chat.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
-
-      <%= form_with model: @chat do |f| %>
-        <%= f.text_field :message %>
-        <%= f.hidden_field :room_id %>
-        <%= f.submit "送信" %>
-      <% end %>
-    
+  </div>
+  <div class="row justify-content-end" style="margin: 50px 20px">
+    <%= form_with model: @chat do |f| %>
+      <%= f.text_field :message, size: "25x5"%>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit "▶️", class: "btn-outline-dark" %>
+    <% end %>
   </div>
 </div>
 
