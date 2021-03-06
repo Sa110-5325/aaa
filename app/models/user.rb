@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :rooms, through: :user_rooms
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   validates :name, presence: true
   # validates :description, presence: true, length: { maximum: 50 }
@@ -41,6 +43,17 @@ class User < ApplicationRecord
       user.password_confirmation = user.password
       user.name = "ゲスト"
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
+
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
+    if temp.black?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
     end
   end
 end
