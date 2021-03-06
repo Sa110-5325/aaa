@@ -6,6 +6,13 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.bean_id = @bean.id
     @comment.save
+    @bean = @comment.bean
+    if @comment.save
+      #サーバーエラーの原因と非同期通信ができない↓
+      # @bean.create_notification_comment!(current_user, @comment.id)
+    else
+      render 'beans/show'
+    end
   end
 
   def destroy

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_060020) do
+ActiveRecord::Schema.define(version: 2021_03_05_132018) do
 
   create_table "beans", force: :cascade do |t|
     t.integer "user_id"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 2021_03_01_060020) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "bean_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "barn_id"
+    t.integer "comment_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
