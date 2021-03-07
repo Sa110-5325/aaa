@@ -45,10 +45,10 @@ class User < ApplicationRecord
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
-  
+
   def create_notification_follow!(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
-    if temp.black?
+    if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,
         action: 'follow'

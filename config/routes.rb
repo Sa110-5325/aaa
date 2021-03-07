@@ -9,19 +9,22 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/about' => 'homes#about'
 
-  resources :users do
-  	member do
-     get :following, :followers
-    end
-  end
+  # resources :users do
+  # 	member do
+  #   get :following, :followers
+  #   end
+  # end
 
   resources :users, only: [:show, :edit, :update] do
     get 'beans' => 'users#index'
     get 'favorites' => 'favorites#index'
+    member do
+     get :following, :followers
+    end
   end
   resources :relationships, only: [:create, :destroy]
-    get 'following' => 'relationships#following', as: 'following'
-    get 'followers' => 'relationships#followers', as: 'followers'
+    # get 'following' => 'relationships#following', as: 'following'
+    # get 'followers' => 'relationships#followers', as: 'followers'
   resources :beans, only: [:index, :show, :edit, :new, :create, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
