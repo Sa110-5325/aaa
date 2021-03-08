@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_143128) do
+ActiveRecord::Schema.define(version: 2021_03_07_120959) do
+
+  create_table "activities", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "subject_type"
+    t.integer "subject_id"
+    t.integer "action_type", null: false
+    t.boolean "read", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_type", "subject_id"], name: "index_activities_on_subject_type_and_subject_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
+  end
 
   create_table "beans", force: :cascade do |t|
     t.integer "user_id"

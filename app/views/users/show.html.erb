@@ -39,7 +39,7 @@
         </div>
         <div class="col-sm-3 text-center">
           <% if @user.id == current_user.id %>
-            <%= link_to notifications_path, class: "btn-sm btn-outline-light" do %>
+            <%= link_to activities_path, class: "btn-sm btn-outline-light" do %>
               <% if unchecked_notifications.any? %>
                 <i class="fas fa-bell" style="color: red;"></i>
                 お知らせ

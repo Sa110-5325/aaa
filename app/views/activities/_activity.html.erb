@@ -1,0 +1,26 @@
+<% visitor = activity.visitor %>
+<% visited = activity.visited %>
+<div class="col-11 my-3">
+  <%#= link_to visitor.name+'さん', user_path(visitor), class: "btn-sm btn-outline-light", style: "text-decoration: underline; margin: 20px 0;" %>
+  <% case activity.action %>
+    <% when 'follow' then %>
+      <%= attachment_image_tag visited, :profile_image, fallback: "no-image.jpg", size: "40x40" %>
+    <%= link_to visited.name + "さん", user_path(visited), class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+    をフォローしました
+    <% when 'favorite' then %>
+      <%= attachment_image_tag activity.bean.user, :profile_image, fallback: "no-image.jpg", size: "40x40" %>
+    <%= link_to activity.bean.user.name + 'さんの紹介', bean_path(activity.bean), class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+      <%#= link_to 'あなたの投稿', activity.bean, class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+    にいいねしました
+    <% when 'comment' then %>
+      <%= attachment_image_tag activity.bean.user, :profile_image, fallback: "no-image.jpg", size: "40x40" %>
+    <% if activity.bean.user_id == visitor.id %>
+      <%= link_to 'あなたの投稿', activity.bean, class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+    <% else %>
+      <%= link_to activity.bean.user.name + 'さんの紹介', bean_path(activity.bean), class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+    <% end %>
+    にコメントしました
+    <% Comment.find_by(id: activity.comment_id)&.comment %>
+  <% end %>
+  <a style="font-size: 10px;"><%= time_ago_in_words(activity.created_at) %> ago</a>
+</div>
