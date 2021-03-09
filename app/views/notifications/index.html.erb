@@ -3,14 +3,23 @@
     <div class="col-sm-3">
       <%= render "layouts/sidebar" %>
     </div>
-    <div class="col-sm-9">
-      <div class="row justify-content-center mt-5">
+    <div class="col-sm-9 mt-5">
+      <%= link_to activities_path, class: "btn-sm btn-outline-light" do %>
+        <% if unchecked_activities.any? %>
+          <i class="fas fa-file-import" style="color: red;"></i>
+          <%= @activities.count %>件のアクティビティがあります
+        <% else %>
+          <i class="fas fa-file-import"></i>
+          アクティビティ
+        <% end %>
+      <% end %>
+      <div class="row justify-content-center">
         <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
         <% if notifications.exists? %>
           <%= render @notifications %>
           <%= paginate @notifications %>
         <% else %>
-          通知はないでごわす
+          通知はありません
         <% end %>
       </div>
     </div>

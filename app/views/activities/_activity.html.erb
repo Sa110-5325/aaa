@@ -15,12 +15,12 @@
     <% when 'comment' then %>
       <%= attachment_image_tag activity.bean.user, :profile_image, fallback: "no-image.jpg", size: "40x40" %>
     <% if activity.bean.user_id == visitor.id %>
-      <%= link_to 'あなたの投稿', activity.bean, class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+      <%= link_to activity.bean.user.name + 'さんの紹介', bean_path(activity.bean), class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
     <% else %>
       <%= link_to activity.bean.user.name + 'さんの紹介', bean_path(activity.bean), class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
     <% end %>
     にコメントしました
     <% Comment.find_by(id: activity.comment_id)&.comment %>
   <% end %>
-  <a style="font-size: 10px;"><%= time_ago_in_words(activity.created_at) %> ago</a>
+  <a style="font-size: 10px;"><%= activity.created_at.strftime('%Y年%m月%d日 %H時%M分') %></a>
 </div>

@@ -1,7 +1,8 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 <div class="col-11 my-3">
-  ★<%= link_to visitor.name+'さん', user_path(visitor), class: "btn-sm btn-outline-light", style: "text-decoration: underline; margin: 20px 0;" %>が
+  <%= attachment_image_tag visitor, :profile_image, fallback: "no-image.jpg", size: "40x40" %>
+  <%= link_to visitor.name+'さん', user_path(visitor), class: "btn-sm btn-outline-light", style: "text-decoration: underline; margin: 20px 0;" %>が
   <% case notification.action %>
   <% when 'follow' then %>
   あなたをフォローしました
@@ -17,5 +18,5 @@
   にコメントしました
   <% Comment.find_by(id: notification.comment_id) %>
   <% end %>
-  <a style="font-size: 10px;"><%= time_ago_in_words(notification.created_at) %> ago</a>
+  <a style="font-size: 10px;"><%= notification.created_at.strftime('%Y年%m月%d日 %H時%M分') %></a>
 </div>
