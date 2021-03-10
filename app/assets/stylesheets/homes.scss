@@ -4,16 +4,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
 
 .container.sidebar_fixed {
-  margin-left: 30px;
+  margin-left: 20px;
   padding-top: 50px;
-  position: sticky;
 }
 
 #slider {
   margin: 0;
   padding-right: 0;
   padding-left: 0;
-
 }
 #slider div:first-child {
   width: 100% !important;
@@ -44,14 +42,6 @@
   100% {background-position: 100% 0;}
 }
 
-.about {
-  box-sizing: border-box;
-  color: #FFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
 .parallax-bg {
   background-attachment: fixed;
   background-position: center;
@@ -341,35 +331,35 @@
 .navbar-toggler-icon:nth-of-type(3) {top:21px;}
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(1) {
-top:13px;
+top: 13px;
 transform: rotate(45deg);
 }
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(2) {
 opacity: 0;
 }
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:nth-of-type(3) {
-top:13px;
+top: 13px;
 transform: rotate(-45deg);
 }
 
 //  Top
 // ボタン本体
-button{
+.switch {
   background: none;
   border: none;
   position: relative;
-  height: 40px;
-  padding: 0 2em;
+  height: 30px;
+  padding: 0 2.5em;
   cursor: pointer;
   transition: 800ms ease all;
 }
 //　ボタンホバー時
-button:hover{
+.switch:hover{
   background: none;
   color: white;
 }
 //　上の線表示
-button:before,button:after{
+.switch:before,.switch:after{
   content:'';
   position: absolute;
   top: 0;
@@ -380,55 +370,15 @@ button:before,button:after{
   transition: 400ms ease all;
 }
 //　下の線表示
-button:after{
+.switch:after{
   right: inherit;
   top: inherit;
   left: 0;
   bottom: 0;
 }
 //　ホバー後
-button:hover:before,button:hover:after{
+.switch:hover:before,.switch:hover:after{
   width: 100%;
   transition: 800ms ease all;
 }
 
-
-// //  about
-// // ボタン本体
-// buttons {
-//   background: none;
-//   border: none;
-//   position: relative;
-//   height: 40px;
-//   padding: 0 2em;
-//   cursor: pointer;
-//   transition: 800ms ease all;
-// }
-// //　ボタンホバー時
-// buttons:hover{
-//   background: none;
-//   color: white;
-// }
-// //　上の線表示
-// buttons:before,button:after{
-//   content:'';
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   height: 2px;
-//   width: 0;
-//   background: white;
-//   transition: 400ms ease all;
-// }
-// //　下の線表示
-// buttons:after{
-//   right: inherit;
-//   top: inherit;
-//   left: 0;
-//   bottom: 0;
-// }
-// //　ホバー後
-// buttons:hover:before,button:hover:after{
-//   width: 100%;
-//   transition: 800ms ease all;
-// }
