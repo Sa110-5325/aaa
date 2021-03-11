@@ -7,7 +7,7 @@ class ChatsController < ApplicationController
       user_room = room.user_rooms.where.not(user_id: current_user)
       user = user_room[0].user
       @users.push(user)
-    @bean = Bean.find(params[:id])
+    # @bean = Bean.find(params[:id])
     end
   end
 
