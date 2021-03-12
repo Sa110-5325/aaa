@@ -1,0 +1,22 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<div class="col-11 my-3">
+  <%= attachment_image_tag visitor, :profile_image, fallback: "no-image.jpg", size: "40x40" %>
+  <%= link_to visitor.name+'さん', user_path(visitor), class: "btn-sm btn-outline-light", style: "text-decoration: underline; margin: 20px 0;" %>が
+  <% case notification.action %>
+  <% when 'follow' then %>
+  あなたをフォローしました
+  <% when 'favorite' then %>
+    <%= link_to 'あなたの投稿', notification.bean, class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+  にいいねしました
+  <% when 'comment' then %>
+  <% if notification.bean.user_id == visited.id %>
+    <%= link_to 'あなたの投稿', notification.bean, class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+  <% else %>
+    <%= link_to notification.bean.user.name + 'さんの投稿 ', bean_path(notification.bean), class: "btn-sm btn-outline-light", style: "text-decoration: underline;" %>
+  <% end %>
+  にコメントしました
+  <% Comment.find_by(id: notification.comment_id) %>
+  <% end %>
+  <a style="font-size: 10px;"><%= notification.created_at.strftime('%Y年%m月%d日 %H時%M分') %></a>
+</div>

@@ -4,20 +4,32 @@
       <%= render "layouts/sidebar" %>
     </div>
     <div class="col-sm-7 mt-5">
-      <h4 class="text-center">チャット中</h4>
-      <% @users.each do |user| %>
-        <div class="row my-4">
-          <div class="col-3 text-right">
-            <%= link_to attachment_image_tag(user, :profile_image, fallback: "no-image.jpg", size: "70x70"),user_path(user) %>
+      <% if @chat.present? %>
+        <h4 class="text-center">チャット中</h4>
+        <% @users.each do |user| %>
+          <div class="row my-4">
+            <div class="col-3 text-right">
+              <%= link_to attachment_image_tag(user, :profile_image, fallback: "no-image.jpg", size: "70x70"),user_path(user) %>
+            </div>
+            <div class="col-5 text-center my-auto">
+              <%= user.name %>
+            </div>
+            <div class="col-4 text-center my-auto">
+              <%= link_to "Room", chat_path(user.id), class: "message text-light" %>
+            </div>
           </div>
-          <div class="col-5 text-center my-auto">
-            <%= user.name %>
-          </div>
-          <div class="col-4 text-center my-auto">
-            <%= link_to "Room", chat_path(user.id), class: "message text-light" %>
-          </div>
-        </div>
+        <% end %>
+      <% else %>
+      <div class="row justify-content-center">
+        チャット中のユーザーはいません
+      </div>
+      <div class="row justify-content-center">
+        <%= link_to beans_path, class: "btn-sm btn-outline-light" do %>
+          <i class="fas fa-hand-holding-heart"></i>　見つけましょう
+        <% end %>
+      </div>
       <% end %>
     </div>
   </div>
+  
 </div>

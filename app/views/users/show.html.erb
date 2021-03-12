@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-3">
       <%= render "layouts/sidebar"%>
-    </div> 
+    </div>
     <div class="col-sm-7">
       <div class="row justify-content-center">
         <div class="col-sm pt-5 text-center">
@@ -32,39 +32,38 @@
       </div><br />
       <div class="row justify-content-center">
         <div class="col-sm-3 text-center">
-          <li class="fab fa-telegram-plane"></li> <%= link_to "Messages", chats_path, class: "text-light" %>
+          <%= link_to chats_path, class: "btn-sm btn-outline-light" do %>
+            <li class="fab fa-telegram-plane"></li>
+            メッセージ
+          <% end %>
+        </div>
+        <div class="col-sm-4 text-center">
+          <% if @user.id == current_user.id %>
+            <%= link_to notifications_path, class: "btn-sm btn-outline-light" do %>
+              <% if unchecked_notifications.any? %>
+                <i class="fas fa-bell" style="color: red;"></i>
+                <%= @notifications.count %>件の通知があります
+              <% else %>
+                <i class="fas fa-bell"></i>
+                通知
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to chat_path(@user.id), class: "btn-sm btn-outline-light" do %>
+              <i class="far fa-envelope"></i>
+              DM
+            <% end %>
+          <% end %>
         </div>
       </div><br />
       <div class="row justify-content-center">
         <div class="col-8-sm text-left">
-          <% if current_user != @user %>
-            <%= link_to "Chat", chat_path(@user.id), class: "btn-sm btn-outline-light" %>
-          <% end %><br />
           <%= link_to "My Posts Beans",user_beans_path(@user), class: "btn-sm btn-outline-light" %><br />
           <%= link_to "My Favorite Beans",user_favorites_path(@user), class: "btn-sm btn-outline-warning" %><br />
           <%= link_to "Post", new_bean_path, class: "btn-sm btn-outline-light" %><br />
           <%= link_to "Edit", edit_user_path, class: "btn-sm btn-outline-warning" %><br />
-          <a class="rank text-light ml-2 collapsed" style="font-size:14px;" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Beans ranking</a>
         </div>
       </div>
     </div>
-  </div><br />
-  <div class="collapse" id="collapseExample" style="">
-    <div class="row justify-content-center">
-      <% @rankings.each.with_index(1) do |bean, i| %>
-        <div class="col-sm-4 text-center">
-          <p style="font-size: 20px;"><%= i %> 位</p>
-          <%= link_to attachment_image_tag(bean, :image, class: "prev-rank", style: "width: 100%; height: 300px;", fallback: "no-image.jpg"), bean_path(bean) %>
-          <div class="py-2 mb-5 bg-light text-dark" style="font-size: 20px;">
-            <%= bean.name %><br />
-            もらったいいね数：<%= bean.favorites.count %><br />
-            <p style="font-size: 15px;"><%= link_to bean.user.name, user_path(bean.user), class: "btn-sm btn-outline-dark",style: "text-decoration: underline;" %>さんの紹介</p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="row justify-content-center" style="padding: 130px 0 20px 0;">
-    ©︎2020-2021 Takafumeeee!!!.
   </div>
 </div>
