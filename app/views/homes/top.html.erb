@@ -1,6 +1,6 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-sm-6 text-center" style="font-size: 40px;">
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-sm-6 text-center" style="font-size: 30px;">
       <%= link_to ("https://twitter.com/?lang=ja") do %>
         <li class="fab fa-twitter text-light"></li>
       <% end %>
@@ -16,28 +16,35 @@
   </div>
 </div>
 <div class="container">
-  <div class="row justify-content-center mt-5 mb-3" style="border-bottom: 3px solid;">
-    <div class="col-sm-8 text-center" style="border-right: 10px solid;">
+  <div class="row justify-content-center mt-5">
+    <div class="col-sm-8 text-center" style="border-right: 10px solid; border-bottom: 3px solid;">
       <%= image_tag("logo.png") %>
     </div>
-    <div class="col-sm-4 text-center my-auto" style="font-size: 50px;">
-      <%= Date.current.strftime('%m') %>  /
-      <%= Date.current.strftime('%d') %>
-    </div>
+    <div class="col-sm-1" style="border-bottom: 3px solid;"></div>
   </div>
 </div>
 <div class="container" id="slider" data-turbolinks="false">
-  <div class="row justify-content-end bg-slider">
+  <div class="row bg-slider">
     <%= render "layouts/top_sidebar" %>
-    <div class="col-sm">
-      <div class="top-font">
-        <div class="row justify-content-end">
-          <h1 style="font-family: 'Kaushan Script', cursive;">Please Introduce your Favorite Coffee.</h1>
-        </div>
-      </div>
+    <div class="col-sm text-center">
+      <div class="top-font"><h1 style="font-family: 'Kaushan Script', cursive;">Please Introduce your Favorite Coffee.</h1></div>
     </div>
   </div>
 </div>
-
+<div class="container">
+  <div class="row justify-content-center" style="margin: 350px 0 100px">
+    <div class="col-sm-8">
+      <h2 style="border-bottom: 10px solid;">INFO</h2><br>
+      <h5>あなたはどんな時にコーヒーを飲みますか？</h5><br>
+      <h5>眠くてたまらない時？リラックスしたい時？食後の一杯に・・・？</h5><br>
+      <h5>例えば、仕事の休憩、家事の合間、お店でのティータイムなど、</h5>
+  　　<h5>様々なシーンでコーヒーを飲むかと思われます。</h5>
+  　　<h5>美味しいと思ったコーヒーを共有しましょう。</h5>
+  　　<h5>同じコーヒーを楽しむということは、同じ時間を共にするということです。</h5>
+  　　<h5>コミュニケーションを円滑にし、人と人との繋がりを</h5>
+  　　<h5>より強くすることができるのではないでしょうか。</h5>
+    </div>
+  </div>
+</div>
 
 
